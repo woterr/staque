@@ -1,0 +1,96 @@
+@import url("http://fonts.cdnfonts.com/css/cocomat");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --header-height: 4.5rem;
+
+  --first-color: #943fe4;
+  --button-color: #5f35d1;
+  --button-color-alt: #502bb4;
+  --title-color: #e4e4e4;
+  --text-color: #838383;
+  --text-color-light: #c4c4c4;
+  --link-color: #fff;
+  --body-color: #0e0e0e;
+  --container-color: #fff;
+  --border-color: #c2c2c2;
+
+  --biggest-font: 2rem;
+  --h1-font: 1.5rem;
+  --h2-font: 1.25rem;
+  --h3-font: 1rem;
+  --normal-font: 0.983rem;
+  --small-font: 0.813rem;
+  --smaller-font: 0.75rem;
+
+  --font-medium: 500;
+  --font-bold: 700;
+
+  --tooltip: 10;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font: 2.5rem;
+    --h1-font: 2.25rem;
+    --h2-font: 1.5rem;
+    --h3-font: 1.25rem;
+    --normal-font: 1rem;
+    --small-font: 0.875rem;
+    --smaller-font: 0.813rem;
+  }
+}
+
+.setup__container {
+  padding-top: 5.5rem;
+  row-gap: 1.5rem;
+}
+
+.setup_img {
+  width: 320px;
+  justify-self: center;
+}
+
+.setup__data {
+  text-align: center;
+}
+
+.setup__title {
+  font-size: var(--biggest-font);
+  line-height: 140%;
+  margin-bottom: 0.5rem;
+}
+
+.setup__description {
+  padding: 0 2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  line-height: 150%;
+}
+
+@media screen and (min-width: 576px) {
+  .setup__container {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .setup {
+    padding-bottom: 6rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .setup__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding-top: 8rem;
+  }
+
+  .setup__data {
+    text-align: initial;
+    padding: 0 4rem;
+  }
+
+  .setup__description {
+    padding: 0;
+  }
+}

@@ -1,0 +1,71 @@
+doctype html
+
+
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Polygon Ticket - The discord bot
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/dashboard.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+ 
+
+body#dashboard
+  include ../nav.pug
+
+  section.container.dashboard.section
+    div.grid.dashboard__container
+      h1.guild_name(style="margin-bottom: 1rem") #{guild.name}
+        img(src=guild.iconURL({ dyniamic: true, size: 32}), alt="")
+      div.note 
+        span <i class='bx bx-error'></i> Note: Some data might not be visible as "saved", but everytime you press on "save" on any of the modules below, data is saved to our database
+      .dashboard__data.dashboard__column
+        .guild__stats
+          .guild__stats-title Guild stats
+          .guild__stats-content
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title Members: 
+                span.guild__stats-item-title-color #{guild.memberCount}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title NSFW level: 
+                span.guild__stats-item-title-color #{guild.nsfwLevel}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title Channels: 
+                span.guild__stats-item-title-color #{guild.channels.cache.size}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title Roles: 
+                span.guild__stats-item-title-color #{guild.roles.cache.size}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title Verified: 
+                span.guild__stats-item-title-color #{guild.verified}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title MFA level: 
+                span.guild__stats-item-title-color #{guild.mfaLevel}
+        form.general-settings-form(action="/servers/" + guild.id + "/general?_method=PUT", method="post")
+          .general-settings
+            .guild__stats-title Setup 
+              span.codeblock /setup
+            .general-settings-content
+              .ticket-channel.general-item
+                span.general-settings-title Ticket channel: 
+                select.form-control(name="ticketChannelId")
+                  each channel of Array.from(guild.channels.cache.filter(c => c.type === "GUILD_TEXT").values())
+                    option(value=channel.id) ##{channel.name}
+              .ticket-transcripts.general-item
+                span.general-settings-title Ticket Transcripts: 
+                select.form-control(name="ticketTranscriptsId")
+                  each channel of Array.from(guild.channels.cache.filter(c => c.type === "GUILD_TEXT").values())
+                    option(value=channel.id) ##{channel.name}
+              .ticket-role.general-item
+                span.general-settings-title Blacklist role: 
+                select.form-control(name="blId")
+                  each role of Array.from(guild.roles.cache.filter(r => r.name !== "@everyone").values())
+                    option(value=role.id) @#{role.name}
+            div.btn_div
+              button.save_btn(type="submit") Save
+
+
+  script(src='js/nocursor.js')
+

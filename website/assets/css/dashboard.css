@@ -1,0 +1,198 @@
+@import url("http://fonts.cdnfonts.com/css/cocomat");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --header-height: 4.5rem;
+
+  --first-color: #943fe4;
+  --button-color: #5f35d1;
+  --button-color-alt: #502bb4;
+  --title-color: #e4e4e4;
+  --text-color: #838383;
+  --text-color-light: #c4c4c4;
+  --link-color: #fff;
+  --body-color: #0e0e0e;
+  --container-color: #fff;
+  --border-color: #c2c2c2;
+
+  --biggest-font: 2rem;
+  --h1-font: 1.5rem;
+  --h2-font: 1.25rem;
+  --h3-font: 1rem;
+  --normal-font: 0.983rem;
+  --small-font: 0.813rem;
+  --smaller-font: 0.75rem;
+
+  --font-medium: 500;
+  --font-bold: 700;
+
+  --tooltip: 10;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font: 2.5rem;
+    --h1-font: 2.25rem;
+    --h2-font: 1.5rem;
+    --h3-font: 1.25rem;
+    --normal-font: 1rem;
+    --small-font: 0.875rem;
+    --smaller-font: 0.813rem;
+  }
+}
+
+#dashboard {
+  cursor: auto;
+}
+
+#dashboard #header {
+  background: #080808;
+}
+
+.dashboard__data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+}
+
+.guild__icon {
+  border-radius: 0.25rem;
+  padding: 1rem;
+  transition: all 0.3s;
+  background-color: #181818;
+}
+
+.guild__icon:hover {
+  transform: translateY(-2%);
+  transition: all 0.3s;
+  box-shadow: 0 10px 15px #0000006e;
+}
+
+.guild__icon img {
+  border-radius: 0.25rem;
+}
+
+.dashboard__column {
+  flex-direction: column;
+  align-items: initial;
+  justify-content: initial;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.guild__stats {
+  background-color: #181a20;
+  padding: 1.75rem;
+  border-radius: 5px;
+  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+}
+
+.guild_name {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.guild_name img {
+  border-radius: 5rem;
+}
+
+.guild__stats-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+}
+
+.guild__stats-title {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.guild__stats-item-title {
+  color: #68727d;
+  font-weight: 600;
+}
+
+.guild__stats-item-title-color {
+  color: #dddddd;
+}
+
+.general-settings {
+  background-color: #181a20;
+  padding: 1.75rem;
+  border-radius: 5px;
+  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+}
+
+.general-settings-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.save_btn {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: #1f2127;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.save_btn:hover {
+  transition: all 0.2s;
+  background: #2e3038;
+  color: #b8b8b8;
+}
+
+.general-item {
+  color: #68727d;
+  font-weight: 600;
+}
+
+.general-item select {
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin-left: 0.5rem;
+  background: #1f2127;
+  color: #dddddd;
+  font-weight: 600;
+}
+
+.general-item select option {
+  outline: 0;
+  border: none;
+  background: #1f2127;
+  color: #dddddd;
+}
+
+.note {
+  padding: 0.5rem;
+  background: rgb(255, 68, 68);
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 590px) {
+  .general-settings-content,
+  .guild__stats-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

@@ -1,0 +1,43 @@
+header#header.header
+  nav.nav.container
+    a.nav__logo(href='/')
+      i.bx.bx-polygon.nav__logo-icon
+      |  Polygon ticket
+    #nav-menu.nav__menu
+      ul.nav__list
+        span.list-header Menu
+        li.nav__item
+          a.nav__link(href='/') Home
+        li.nav__item
+          a.nav__link(href='/setup') Setup
+        li.nav__item
+          a.nav__link(href='/faq') FAQ
+        li.nav__item
+          a.nav__link(href='/invite') Invite
+        li.nav__item
+          a.nav__link(href='/support') Support
+      ul.nav__list.nav_links_list(style='margin-left: 3rem; row-gap: 0.5rem')
+        span.list-header(style='margin-bottom: 2rem') Links
+        li.nav__item(style='padding: 10px 0px; margin: 0px')
+          a.nav__link(href='/termsofservice', style='font-size: 1rem') Terms of service
+        li.nav__item(style='padding: 10px 0px; margin: 0px')
+          a.nav__link(href='/privacypolicy', style='font-size: 1rem') Privacy policy
+    .right_side-nav
+      if user 
+        .login__btn
+          a.login__icon.hover_element(href='/dashboard')
+            i.bx.bxs-dashboard
+        .login__btn
+          a.login__icon.hover_element(href='/logout')
+            i.bx.bx-log-out
+        img.user_avatar(src=user.avatarUrl(32), alt='')
+
+      else 
+        .login__btn
+          a.login__icon.hover_element(href='/login')
+            i.bx.bx-log-in
+            
+      #scroll-top.scroll-top.hover_element
+        i.bx.bxs-chevron-up
+      #nav-toggle.nav__toggle.hover_element
+        .toggle__icon

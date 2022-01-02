@@ -1,0 +1,152 @@
+@import url("http://fonts.cdnfonts.com/css/cocomat");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --header-height: 4.5rem;
+
+  --first-color: #943fe4;
+  --button-color: #5f35d1;
+  --button-color-alt: #502bb4;
+  --title-color: #e4e4e4;
+  --text-color: #838383;
+  --text-color-light: #c4c4c4;
+  --link-color: #fff;
+  --body-color: #0e0e0e;
+  --container-color: #fff;
+  --border-color: #c2c2c2;
+
+  --biggest-font: 2rem;
+  --h1-font: 1.5rem;
+  --h2-font: 1.25rem;
+  --h3-font: 1rem;
+  --normal-font: 0.983rem;
+  --small-font: 0.813rem;
+  --smaller-font: 0.75rem;
+
+  --font-medium: 500;
+  --font-bold: 700;
+
+  --tooltip: 10;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font: 2.5rem;
+    --h1-font: 2.25rem;
+    --h2-font: 1.5rem;
+    --h3-font: 1.25rem;
+    --normal-font: 1rem;
+    --small-font: 0.875rem;
+    --smaller-font: 0.813rem;
+  }
+}
+
+.err__data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.err_container {
+  margin-top: 10rem;
+}
+
+.err_top {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.err_title {
+  font-size: 10rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: transparent;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: var(--title-color);
+  margin-bottom: 1.5rem;
+  letter-spacing: 10px;
+  position: relative;
+
+  text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+    -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+
+  animation: glitch 0.75s infinite;
+}
+
+.err_title span {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.err_title span:first-child {
+  animation: glitch 0.65s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-0.015em, -0.025em);
+  opacity: 0.5;
+}
+
+.err_title span:last-child {
+  animation: glitch 0.35s infinite;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  transform: translate(0.015em, 0.025em);
+  opacity: 0.5;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em- 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+.err_description {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 400px) {
+  .err_title {
+    font-size: 7rem;
+  }
+
+  .err_top {
+    font-size: var(--big-font);
+  }
+}
+
+@media screen and (max-width: 270px) {
+  .err_title {
+    font-size: 5rem;
+  }
+}

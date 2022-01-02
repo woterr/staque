@@ -1,0 +1,230 @@
+@import url("http://fonts.cdnfonts.com/css/cocomat");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --header-height: 4.5rem;
+
+  --first-color: #943fe4;
+  --button-color: #5f35d1;
+  --button-color-alt: #502bb4;
+  --title-color: #e4e4e4;
+  --text-color: #838383;
+  --text-color-light: #c4c4c4;
+  --link-color: #fff;
+  --body-color: #0e0e0e;
+  --container-color: #fff;
+  --border-color: #c2c2c2;
+
+  --biggest-font: 2rem;
+  --h1-font: 1.5rem;
+  --h2-font: 1.25rem;
+  --h3-font: 1rem;
+  --normal-font: 0.983rem;
+  --small-font: 0.813rem;
+  --smaller-font: 0.75rem;
+
+  --font-medium: 500;
+  --font-bold: 700;
+
+  --tooltip: 10;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font: 2.5rem;
+    --h1-font: 2.25rem;
+    --h2-font: 1.5rem;
+    --h3-font: 1.25rem;
+    --normal-font: 1rem;
+    --small-font: 0.875rem;
+    --smaller-font: 0.813rem;
+  }
+}
+
+.body-1 {
+  --body-color: #000000;
+  transition: all 0.3s;
+  background: var(--body-color);
+}
+
+.body-2 {
+  transition: all 0.3s;
+  --body-color: #070707;
+  background: var(--body-color);
+}
+
+.bg_t_cont {
+  position: relative;
+}
+
+.bg_t {
+  position: absolute;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #2c2c2c;
+  font-size: 7rem;
+  z-index: -2;
+}
+
+.bg_t1 {
+  left: -13rem;
+  top: 20rem;
+  transform: rotate(-90deg);
+}
+
+.bg_t2 {
+  right: -9rem;
+  top: 20rem;
+  transform: rotate(90deg);
+}
+
+.home__container {
+  padding-top: 5.5rem;
+  row-gap: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.home_img {
+  width: 320px;
+  justify-self: center;
+}
+
+.home__data {
+  text-align: center;
+}
+
+.home__title {
+  font-size: var(--biggest-font);
+  line-height: 140%;
+  margin-bottom: 0.5rem;
+}
+
+.home__description {
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 576px) {
+  .home__container {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .home {
+    padding-bottom: 6rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .home__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .home__data {
+    text-align: initial;
+  }
+
+  .home__description {
+    padding: 0;
+  }
+}
+
+/* features  */
+/* =====================================================
+=====================================================
+===================================================== */
+
+.features__data {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.features__card {
+  padding: 1rem;
+  text-align: center;
+}
+
+.features__card-icon {
+  font-size: 2.5rem;
+  color: var(--button-color);
+  margin-bottom: 0.5rem;
+}
+
+.features__card-title {
+  font-size: var(--h2-font);
+  margin-bottom: 1rem;
+}
+
+.features__card-description {
+  font-weight: 300;
+  line-height: 145%;
+}
+
+@media screen and (max-width: 768px) {
+  .features__data {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* bl/wl  */
+/* =====================================================
+=====================================================
+===================================================== */
+
+.bl__data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bl__card {
+  padding: 2rem;
+  border-radius: 0.3rem;
+  border: 3px solid #2c2c2c;
+  border-style: dashed;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  max-width: 60%;
+}
+
+.bl__card-title {
+  font-size: var(--h2-font);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.bl__card-title .codeblock {
+  margin-left: 1rem;
+}
+
+.bl__card-description {
+  font-weight: 300;
+  line-height: 145%;
+}
+
+.bl__div {
+  height: 7rem;
+  width: 3px;
+  background: var(--title-color);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bl__icon {
+  background: var(--body-color);
+  font-size: 2.5rem;
+  transform: translate(5%, 0%);
+  border-radius: 3rem;
+}
+
+@media screen and (max-width: 767px) {
+  .bl__card {
+    max-width: 100%;
+  }
+}

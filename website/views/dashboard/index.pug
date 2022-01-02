@@ -1,0 +1,27 @@
+doctype html
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Polygon Ticket - The discord bot
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/dashboard.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+
+body#dashboard
+  include ../nav.pug
+
+  section.container.dashboard.section
+    div.grid.dashboard__container
+      h1.section__title Dashboard
+      .dashboard__data 
+        each guild in guilds 
+          a(href="dashboard/servers/" + guild.id)
+            if guild.icon 
+              div.guild__icon
+                img(alt=guild.name, src=guild.iconURL({dyniamic: true, size: 128})) 
+            else
+              span.name__acronym #{guild.nameAcronym}
+
+  script(src='js/nocursor.js')

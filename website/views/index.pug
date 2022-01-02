@@ -1,0 +1,106 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Polygon Ticket - The discord bot
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/home.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js', integrity='sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==', crossorigin='anonymous', referrerpolicy='no-referrer')
+
+body
+  include nav.pug
+
+  .cursor
+  .bg_t_cont.container
+    span.bg_t.bg_t1 POLYGON
+  section#home.home.container
+    .home__container.grid
+      img.home__img(src='https://cdn.discordapp.com/attachments/833234791431667713/925755633435815966/logo1.png', alt='')
+      .home__data
+        h1.home__title A ticket bot that doesn&apos;t suck
+        p.home__description
+          | The perfect discord bot to help you manage tickets in and around
+          | your server. 
+          br
+          |             We actually care about your server and your server members, this bot
+          |             is the only thing you would need to connect with your members
+        a.button(href='/invite') Invite
+    a.scroll_down(href='#features')
+      .scroll
+  section#features.features.container.section
+    .features__container.grid
+      h1.section__title Features
+      .features__data
+        .features__card
+          i.bx.bx-check-shield.features__card-icon
+          h3.features__card-title Secure
+          p.features__card-description
+            | We do not ask for much, the bot needs
+            span.codeblock Manage channels
+            |  and
+            span.codeblock Manage roles
+            |  permission, the rest
+            |               will be done by the bot
+        .features__card
+          i.bx.bx-save.features__card-icon
+          h3.features__card-title Log everything
+          p.features__card-description
+            | You can save all your ticket transcripts! We have made it optional
+            | now, so discord servers don&apos;t die
+        .features__card
+          i.bx.bx-data.features__card-icon
+          h3.features__card-title Saved info
+          p.features__card-description
+            | This bot makes sure that ticket information is saved in our
+            | database, to prevent data loss
+  .bg_t_cont.container
+    span.bg_t.bg_t2 TICKET
+  section#bl.bl.container.section
+    .bl__container.grid
+      h1.section__title Ticket blacklist/whitelist
+      .bl__data
+        .bl__card
+          h3.bl__card-title
+            | Ticket blacklist
+            span.codeblock /ticket_bl
+          p.bl__card-description
+            | We have a built-in command which lets you blacklist people from
+            | creating tickets, this could be used if someone was trolling,
+            | advertising ..etc
+        .bl__div
+        .bl__card
+          h3.bl__card-title
+            | Ticket whitelist 
+            span.codeblock /ticket_wl
+          p.bl__card-description
+            | Alright.. You have now blacklisted someone, now you feel bad...
+            br
+            |               Dont sweat! We have another built-in command which lets you
+            |               whitelist users (They can create tickets again)
+  section#inv.home.container.section
+    h1.section__title Invite
+    .home__container.grid
+      img.home__img(src='https://cdn.discordapp.com/attachments/923892443773034536/926369937625341963/unknown.png', alt='')
+      .home__data
+        h1.home__title Invite the bot today!
+        p.home__description
+          | Alright! Enough talking! If you feel this bot is just perfect for
+          | your server, invite it today! 
+          br
+          |             Just click the button below and discord OAuth will take care of the
+          |             rest
+        a.button(href='/invite') Invite
+        a.button(href='/setup', style='margin-left: 1rem') Setup
+  script(src='js/main.js', type='module')
+  script.
+    function body_change() {
+    const body = document.getElementById("body");
+    // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
+    if (this.scrollY >= 400) body.classList.add("body-1");
+    else body.classList.remove("body-1");
+    if (this.scrollY >= 700) body.classList.add("body-2");
+    else body.classList.remove("body-2");
+    }
+    window.addEventListener("scroll", body_change);
