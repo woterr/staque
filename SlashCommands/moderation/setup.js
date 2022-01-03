@@ -23,9 +23,8 @@ module.exports = {
     },
     {
       name: "ticket_bl_id",
-      description:
-        "The role id of the role to be given when a person is blacklisted",
-      type: "STRING",
+      description: "The role role to be given when a person is blacklisted",
+      type: "ROLE",
       required: true,
     },
   ],
@@ -41,20 +40,10 @@ module.exports = {
     const ticketChannelId = interaction.options.getChannel("ticket_channel").id;
     const transcriptChannelId =
       interaction.options.getChannel("ticket_transcripts").id;
-    const ticket_bl_id = interaction.options.getString("ticket_bl_id");
+    const ticket_bl_id = interaction.options.getString("ticket_bl_id").id;
     const guildId = interaction.guild.id;
 
     const embed = new MessageEmbed().setColor("773dff");
-
-    const ticketBLROLE = interaction.guild.roles.cache.get(ticket_bl_id);
-    if (!ticketBLROLE)
-      return interaction
-        .followUp({
-          embeds: [
-            embed.setDescription("The role id provided isn't an acutal role"),
-          ],
-        })
-        .catch(console.error);
 
     ticketModel.findOne(
       {
