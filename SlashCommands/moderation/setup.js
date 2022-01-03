@@ -62,7 +62,7 @@ module.exports = {
           }).save();
 
           embed.setDescription(
-            `**Guild Id**: ${guildId}\n**Ticket Channel**: <#${ticketChannelId}>\n**Transcripts**: <#${transcriptChannelId}>\n**Ticket Blacklist**: <@${ticket_bl_id}>\n\nIf this information is correct, Congrats! Your server is officially registered in our database, if it isn't, try running \`/setup\` again with the right information.`
+            `**Guild Id**: ${guildId}\n**Ticket Channel**: <#${ticketChannelId}>\n**Transcripts**: <#${transcriptChannelId}>\n**Ticket Blacklist**: <@&${ticket_bl_id}>\n\nIf this information is correct, Congrats! Your server is officially registered in our database, if it isn't, try running \`/setup\` again with the right information.`
           );
           interaction.followUp({ embeds: [embed] }).catch(console.error);
         } else if (!data) {
