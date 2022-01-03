@@ -3,6 +3,9 @@
   "version": "1.2.0",
   "description": "A ticket bot",
   "main": "index.js",
+    "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "nodemon index.js"
