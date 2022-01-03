@@ -1,2 +1,1 @@
-web node ./website/server.js
-Worker node index.js
+web node index.js
