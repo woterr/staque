@@ -40,7 +40,7 @@ module.exports = {
     const ticketChannelId = interaction.options.getChannel("ticket_channel").id;
     const transcriptChannelId =
       interaction.options.getChannel("ticket_transcripts").id;
-    const ticket_bl_id = interaction.options.getString("ticket_bl_id").id;
+    const ticket_bl_id = interaction.options.getRole("ticket_bl_id").id;
     const guildId = interaction.guild.id;
 
     const embed = new MessageEmbed().setColor("773dff");
