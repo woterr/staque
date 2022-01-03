@@ -1,2 +1,2 @@
-web npm run ./website/server.js
+web node ./website/server.js
 Worker node index.js
