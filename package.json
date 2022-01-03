@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "A ticket bot",
   "main": "index.js",
-    "engines": {
+  "engines": {
     "node": "16.x"
   },
   "scripts": {
@@ -24,7 +24,8 @@
     "express": "^4.17.2",
     "glob": "^7.1.7",
     "method-override": "^3.0.0",
-    "mongoose": "^6.0.2"
+    "mongoose": "^6.0.2",
+    "pug": "^2.0.3"
   },
   "devDependencies": {
     "discord.js": "^13.4.0",
