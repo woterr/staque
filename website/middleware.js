@@ -1,6 +1,4 @@
 const sessions = require("./sessions");
-const bot = require("../handler/index");
-const DB = require("../Schemas/ticket");
 
 module.exports.updateGuilds = async (req, res, next) => {
   try {

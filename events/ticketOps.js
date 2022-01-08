@@ -7,185 +7,200 @@ const {
 const client = require("../index");
 
 const DB = require("../Schemas/ticket");
+const ticketSetup = require("../Schemas/ticketSetup");
 const { createTranscript } = require("discord-html-transcripts");
 
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isButton()) return;
   const { guild, channel, customId, member } = interaction;
   if (!["close", "lock", "unlock", "delete", "save"].includes(customId)) return;
+  interaction.deferUpdate();
 
   const embed = new MessageEmbed().setColor("773dff");
-
-  DB.findOne(
-    { ChannelID: interaction.channel.id, Setup: false },
-    async (err, data) => {
+  const setupData = await ticketSetup.findOne({ GUildId: guild.id });
+  try {
+    DB.findOne({ ChannelId: interaction.channel.id }, async (err, data) => {
       if (err) return console.log(err);
       if (!data) {
-        interaction.deferUpdate().catch(console.error);
-
-        return interaction.channel
-          .send({
-            content: `<@${interaction.member.id}>, :no_entry: No data was found regarding this ticket in our database, please delete it manually`,
-            // ephemeral: true,
-          })
-          .catch(console.error);
+        return interaction.followUp({
+          content: `<@${interaction.member.id}>, :no_entry: No data was found regarding this ticket in our database, please delete it manually`,
+          ephemeral: true,
+        });
       }
-
       const member1 = interaction.member;
 
       switch (customId) {
         case "lock":
-          if (!member1.permissions.has("MANAGE_MESSAGES"))
-            return interaction.channel
-              .send({
-                content: `<@${interaction.member.id}>, :no_entry: You do not have access to use this`,
-                // ephemeral: true,
-              })
-              .catch(console.error);
+          if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
+            return interaction.followUp({
+              embeds: [
+                embed.setDescription(
+                  `<@${interaction.member.id}>, :no_entry: You do not have access to use this`
+                ),
+              ],
+              ephemeral: true,
+            });
+
           if (data.Locked === true)
-            return interaction.channel
-              .send("🔒 Ticket is already locked")
-              .catch(console.error);
+            return interaction.followUp({
+              embeds: [
+                embed.setDescription("🔒 This ticket is already locked"),
+              ],
+              ephemeral: true,
+            });
+
           await DB.updateOne(
             { ChannelId: interaction.channel.id },
             { Locked: true }
           );
-          embed.setDescription(`🔒 This ticket is now locked`);
-          interaction.channel.permissionOverwrites
-            .edit(data.MemberId, {
-              SEND_MESSAGES: false,
-            })
-            .catch(console.error);
-          interaction.channel.send({ embeds: [embed] }).catch(console.error);
+          interaction.channel.permissionOverwrites.edit(data.MemberId, {
+            SEND_MESSAGES: false,
+          });
 
-          interaction.deferUpdate().catch(console.error);
+          interaction.channel.send({
+            embeds: [embed.setDescription(`🔒 This ticket is now locked`)],
+          });
+
           break;
 
         case "unlock":
-          if (!member1.permissions.has("MANAGE_MESSAGES"))
-            return interaction.channel
-              .send({
-                content: `<@${interaction.member.id}>, :no_entry: You do not have access to use this`,
-                // ephemeral: true,
-              })
-              .catch(console.error);
+          if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
+            return interaction.followUp({
+              embeds: [
+                embed.setDescription(
+                  `<@${interaction.member.id}>, :no_entry: You do not have access to use this`
+                ),
+              ],
+              ephemeral: true,
+            });
 
           if (data.Locked == false)
-            return interaction.channel
-              .send("🔒 Ticket is already unlocked")
-              .catch(console.error);
+            return interaction.followUp({
+              embeds: [embed.setDescription("🔒 Ticket is already unlocked")],
+              ephemeral: true,
+            });
 
           await DB.updateOne(
             { ChannelId: interaction.channel.id },
             { Locked: false }
-          ).catch(console.error);
+          );
           embed.setDescription(`🔒 This ticket is now unlocked`);
 
-          interaction.channel.permissionOverwrites
-            .edit(data.MemberId, {
-              SEND_MESSAGES: true,
-            })
-            .catch(console.error);
-          interaction.channel.send({ embeds: [embed] }).catch(console.error);
-
-          interaction.deferUpdate().catch(console.error);
+          interaction.channel.permissionOverwrites.edit(data.MemberId, {
+            SEND_MESSAGES: true,
+          });
+          interaction.channel.send({ embeds: [embed] });
           break;
 
         case "close":
           if (data.Closed === true)
-            return interaction.channel
-              .send({
-                content: `<@${interaction.member.id}>, 🔐 Ticket is already closed, please wait for it to be deleted.`,
-                // ephemeral: true,
-              })
-              .catch(console.error);
+            return interaction.followUp({
+              embeds: [embed.setDescription("🔒 Ticket is already closed")],
+              ephemeral: true,
+            });
 
           await DB.updateOne(
             { ChannelId: interaction.channel.id },
             { Closed: true }
           );
 
-          interaction.channel.permissionOverwrites
-            .edit(data.MemberId, {
-              VIEW_CHANNEL: false,
-              SEND_MESSAGES: false,
-              READ_MESSAGE_HISTORY: false,
-            })
-            .catch(console.error);
+          interaction.channel.permissionOverwrites.edit(data.MemberId, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false,
+            READ_MESSAGE_HISTORY: false,
+          });
 
-          interaction.channel
-            .send({
-              embeds: [embed.setDescription(`🔐 This ticket is now closed`)],
-            })
-            .catch(console.error);
-
-          interaction.deferUpdate().catch(console.error);
+          interaction.followUp({
+            embeds: [embed.setDescription(`🔐 This ticket is now closed`)],
+          });
           break;
 
         case "save":
+          if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
+            return interaction.followUp({
+              embeds: [
+                embed.setDescription(
+                  `<@${interaction.member.id}>, :no_entry: You do not have access to use this`
+                ),
+              ],
+              ephemeral: true,
+            });
+
           const attachment = await createTranscript(interaction.channel, {
             limit: -1,
             returnBuffer: false,
-            fileName: `${data.type} - ${data.ticketId}.html`,
+            fileName: `${data.Type} - ${data.TicketId}.html`,
           });
 
           const checkForTranscriptChannel =
-            interaction.guild.channels.cache.get(data.TranscriptId);
+            interaction.guild.channels.cache.get(setupData.TranscriptId);
+
           if (!checkForTranscriptChannel)
-            return interaction.channel.send({
-              content: `<@${interaction.member.id}>, :no_entry: There was an error trying to save this ticket, please run \`/setup\` again`,
-              embeds: [embed.setDescription(`Transcript not saved.`)],
+            return interaction.followUp({
+              embeds: [
+                embed.setDescription(
+                  `<@${interaction.member.id}>, :no_entry: There was an error trying to save this ticket, please run \`/setup\` again\n\nTranscript not saved.`
+                ),
+              ],
+              ephemeral: true,
             });
 
           const message = await guild.channels.cache
-            .get(data.TranscriptId)
+            .get(setupData.TranscriptId)
             .send({
               embeds: [
                 embed
                   .setDescription(
-                    `**Transcript type**: \`${data.Type}\`\n**Transcript Id**: \`${data.TicketId}\`\n**Creator**: <@${data.MemberId}>`
+                    `**Transcript type**: \`${data.Type}\`\n**Transcript Id**: \`${setupData.TranscriptId}\`\n**Creator**: <@${data.MemberId}>`
                   )
-                  .setAuthor(
-                    `${interaction.guild.name} | Ticket: ${data.TicketId}`,
-                    interaction.guild.iconURL({ dynamic: true })
-                  ),
+                  .setAuthor({
+                    name: `${interaction.guild.name} | Ticket: ${data.TicketId}`,
+                    icon: interaction.guild.iconURL({ dynamic: true }),
+                  }),
               ],
               files: [attachment],
-            })
-            .catch(console.error);
-
+            });
           interaction.channel.send({
             embeds: [
               embed.setDescription(
-                `Transcript saved in <#${data.TranscriptId}>`
+                `Transcript saved in <#${setupData.TranscriptId}>`
               ),
             ],
           });
-          interaction.deferUpdate().catch(console.error);
 
           break;
 
         case "delete":
-          if (!member1.permissions.has("MANAGE_MESSAGES"))
-            return interaction.channel
-              .send({
-                content: ":no_entry: You do not have access to use this",
-                // ephemeral: true,
-              })
-              .catch(console.error);
-          interaction.channel
-            .send(
-              `<@${interaction.member.id}>, :wastebasket: Deleting ticket... Please wait..`
-            )
-            .catch(console.error);
+          if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
+            return interaction.followUp({
+              embeds: [
+                embed.setDescription(
+                  `<@${interaction.member.id}>, :no_entry: You do not have access to use this`
+                ),
+              ],
+              ephemeral: true,
+            });
+          interaction.channel.send({
+            embeds: [embed.setDescription(`Deleting ticket..`)],
+            ephemeral: true,
+          });
+          // interaction.deferUpdate();
           setTimeout(() => {
             data.delete();
-            interaction.channel.delete().catch(console.error);
-          }, 5000);
+            interaction.channel.delete();
+          }, 2000);
 
-          interaction.deferUpdate().catch(console.error);
           break;
       }
-    }
-  );
+    });
+  } catch {
+    const errEmb = new MessageEmbed()
+      .setColor("RED")
+      .setDescription(
+        `Whoops! There was an error while performing this action..\n>\n\`\`\`${err}\`\`\``
+      );
+
+    console.log(err);
+    interaction.followUp({ embeds: [errEmb], ephemeral: true });
+  }
 });

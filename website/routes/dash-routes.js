@@ -3,6 +3,7 @@ const express = require("express");
 const { validateGuild } = require("../middleware.js");
 const mongoose = require("mongoose");
 const DB = require("../../Schemas/ticket.js");
+const setupDB = require("../../Schemas/ticketSetup.js");
 
 const router = express.Router();
 
@@ -21,16 +22,21 @@ router.put("/servers/:id/:module", validateGuild, async (req, res) => {
         data.delete();
         new DB({
           GuildId: id,
-          Setup: true,
-          OpenTicketId: req.body.ticketChannelId,
+          ChannelId: req.body.ticketChannelId,
           TranscriptId: req.body.ticketTranscriptsId,
           TicketBLId: req.body.blId,
+          // GuildId: String,
+          // ChannelId: String,
+          // TranscriptId: String,
+          // TicketBLId: String,
+          // CategoryId: String,
+          // Managers: String,
+          // Buttons: [String],
         }).save();
       } else if (!data) {
         new DB({
           GuildId: id,
-          Setup: true,
-          OpenTicketId: req.body.ticketChannelId,
+          ChannelId: req.body.ticketChannelId,
           TranscriptId: req.body.ticketTranscriptsId,
           TicketBLId: req.body.blId,
         }).save();

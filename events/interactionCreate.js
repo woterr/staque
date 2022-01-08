@@ -3,10 +3,12 @@ const client = require("../index");
 client.on("interactionCreate", async (interaction) => {
   // Slash Command Handling
   if (interaction.isCommand()) {
-    await interaction.deferReply({ ephemeral: false }).catch(() => {});
-
     const cmd = client.slashCommands.get(interaction.commandName);
-    if (!cmd) return interaction.followUp({ content: "An error has occured " });
+    if (!cmd)
+      return interaction.reply({
+        content: "An error has occured ",
+        ephemeral: true,
+      });
 
     const args = [];
 
@@ -23,8 +25,9 @@ client.on("interactionCreate", async (interaction) => {
     );
 
     if (!interaction.member.permissions.has(cmd.userPermissions || []))
-      return interaction.followUp({
+      return interaction.reply({
         content: "You do not have access to this command",
+        ephemeral: true,
       });
 
     cmd.run(client, interaction, args);

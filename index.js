@@ -6,6 +6,10 @@ const client = new Client({
 });
 module.exports = client;
 
+process.on("unhandledRejection", (error) => {
+  console.error("Unhandled promise rejection:", error);
+});
+
 // Global Variables
 client.commands = new Collection();
 client.slashCommands = new Collection();
