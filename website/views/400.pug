@@ -1,0 +1,38 @@
+doctype html
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title 400 - Bad request
+  link(rel="shortcut icon", href="/images/logo.png", type="image/png")
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/err.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+.cursor
+section.container.err
+  .grid.err_container
+    .err__data
+      p.err_top Error
+      p.err_title
+        | 400 
+        span(aria-hidden='true') 400
+        span(aria-hidden='true') 400
+      p.err_description Your request was denied!
+      a.button(href='/') Return home
+script.
+  let mouseCursor = document.querySelector(".cursor");
+  const links = document.getElementsByTagName("a");
+  window.addEventListener("mousemove", cursor);
+  function cursor(e) {
+  mouseCursor.style.top = e.pageY + "px";
+  mouseCursor.style.left = e.pageX + "px";
+  }
+  Array.from(links).forEach((link) => {
+  link.addEventListener("mouseover", () => {
+  mouseCursor.classList.add("focus");
+  });
+  link.addEventListener("mouseleave", () => {
+  mouseCursor.classList.remove("focus");
+  });
+  });

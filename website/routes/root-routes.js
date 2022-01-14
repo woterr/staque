@@ -1,0 +1,13 @@
+const express = require("express");
+
+const router = express.Router();
+
+router.get("/", (req, res) =>
+  res.render("index", {
+    value: "test",
+  })
+);
+router.get(`/setup`, (req, res) => res.render(`setup`));
+router.get(`/faq`, (req, res) => res.render(`faq`));
+
+module.exports = router;

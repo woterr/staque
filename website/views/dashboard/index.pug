@@ -1,0 +1,33 @@
+doctype html
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title staque
+  link(rel="shortcut icon", href="/images/logo.png", type="image/png")
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/dashboard.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+
+body#dashboard
+  include ../nav.pug
+
+  section.dashboard.section
+    div.grid.dashboard__container.container
+      h2.section__title Dashboard
+      .dashboard__data 
+        h2.container__title Servers
+        .dashboard__data-cont
+          each guild in guilds 
+            a(href="dashboard/servers/" + guild.id)
+              if guild.icon 
+                div.guild__icon
+                  img(alt=guild.name, src=guild.iconURL({dyniamic: true, size: 128})) 
+                  span.guild__name #{guild.name}
+              else
+                div.guild__icon
+                  img.guild__image(src="https://play-lh.googleusercontent.com/0oO5sAneb9lJP6l8c6DH4aj6f85qNpplQVHmPmbbBxAukDnlO7DarDW0b-kEIHa8SQ", alt="No image found")
+                  span.name__acronym.guild__name #{guild.nameAcronym}
+
+  script(src='js/main.js')

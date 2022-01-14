@@ -1,0 +1,101 @@
+doctype html
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title staque
+  link(rel="shortcut icon", href="/images/logo.png", type="image/png")
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/dashboard.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+ 
+
+body
+  include ../nav.pug
+
+  section.dashboard.section
+    div.grid.dashboard__container.container
+      h1.guild_name(style="margin-bottom: 1rem") #{guild.name}
+        img(src=guild.iconURL({ dyniamic: true, size: 32}), alt="Server logo")
+      div.note 
+        span <i class='bx bx-error'></i> If you do not see your saved changes, please do refresh twice or so! We prefer using our slash command. Thank you for your cooperation!
+      .dashboard__data.dashboard__column
+        .guild__stats
+          .guild__stats-title Guild stats
+          .guild__stats-content
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title Members: 
+                span.guild__stats-item-title-color #{guild.memberCount}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title NSFW level: 
+                span.guild__stats-item-title-color #{guild.nsfwLevel}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title Channels: 
+                span.guild__stats-item-title-color #{guild.channels.cache.size}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title Roles: 
+                span.guild__stats-item-title-color #{guild.roles.cache.size}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title Verified: 
+                span.guild__stats-item-title-color #{guild.verified}
+            .guild__stats-memberCount.guild__stats-item
+              span.guild__stats-item-title MFA level: 
+                span.guild__stats-item-title-color #{guild.mfaLevel}
+        form.general-settings-form(action="/dashboard/servers/" + guild.id + "/general?_method=PUT", method="post")
+          .general-settings
+            .guild__stats-title Configuration 
+              span.codeblock /settings edit
+            .general-settings-content
+              .ticket-channel.general-item
+                span.general-settings-title Channel: 
+                //- input(type="hidden" name="channelId" value="")
+                select.form-control(name="channelId")                    
+                  option(value="" selected) 
+                  each channel of Array.from(guild.channels.cache.filter(c => c.type === "GUILD_TEXT").values())
+                    if savedGuild.ChannelId.includes(channel.id)
+                      option(value=channel.id, selected) ##{channel.name}
+                    else 
+                      option(value=channel.id) ##{channel.name}
+              .ticket-transcripts.general-item
+                span.general-settings-title Transcripts: 
+                select.form-control(name="transcriptId")
+                  option(value="" selected) 
+                  each channel of Array.from(guild.channels.cache.filter(c => c.type === "GUILD_TEXT").values())
+                    if savedGuild.TranscriptId.includes(channel.id)
+                      option(value=channel.id, selected) ##{channel.name}
+                    else 
+                      option(value=channel.id) ##{channel.name}
+              .ticket-category.general-item
+                span.general-settings-title Category [BETA]: 
+                select.form-control(name="catId")
+                  option(value="" selected) 
+                  each channel of Array.from(guild.channels.cache.filter(c => c.type === "GUILD_CATEGORY").values())
+                    if savedGuild.CategoryId.includes(channel.id)
+                      option(value=channel.id, selected) #{channel.name}
+                    else 
+                      option(value=channel.id) #{channel.name}
+              .ticket-role.general-item
+                span.general-settings-title Blacklist: 
+                select.form-control(name="blId")
+                  option(value="" selected) 
+                  each role of Array.from(guild.roles.cache.filter(r => r.name !== "@everyone").values())
+                    if savedGuild.TicketBLId.includes(role.id)
+                      option(value=role.id, selected) @#{role.name}
+                    else 
+                      option(value=role.id) @#{role.name}
+              .ticket-manager.general-item
+                span.general-settings-title Manager: 
+                select.form-control(name="managerId")
+                  option(value="" selected) 
+                  each role of Array.from(guild.roles.cache.filter(r => r.name !== "@everyone").values())
+                    if savedGuild.Managers.includes(role.id)
+                      option(value=role.id, selected) @#{role.name}
+                    else 
+                      option(value=role.id) @#{role.name}
+
+            div.btn_div
+              button.save_btn(type="submit") Save
+
+  script(src="/js/main.js") 
+

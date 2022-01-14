@@ -1,0 +1,94 @@
+doctype html
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title staque
+  link(rel="shortcut icon", href="/images/logo.png", type="image/png")
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/setup.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js', integrity='sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==', crossorigin='anonymous', referrerpolicy='no-referrer')
+  link(rel='stylesheet', href='https://unpkg.com/swiper@7/swiper-bundle.min.css')
+  script(src='https://unpkg.com/swiper@7/swiper-bundle.min.js')
+
+body#setup-body
+  include nav.pug 
+
+  main.main 
+    section.set.section 
+      .set__container.container.grid
+        .set__doc 
+          h1.set__docT Adding the bot to your server 
+          p.set__docD  First things first! Let's start by adding this bot to your lovely server! 
+          a.button(href="/invite") Invite
+
+        .set__doc.set__doc2
+          h1.set__docT Setting it all up! 
+          p.set__docD  Alright! Now you have added the bot to your server, you can start setting it up by running 
+            span.codeblock /settings edit 
+            | in your server! 
+          ul 
+            li.set__item 
+              span 
+                span.set__item-first channel: 
+                | The channel in which you want to allow your server members to create a ticket in! 
+                span.set__item-last (Example: #open-ticket, #tickets)
+            li.set__item 
+              span 
+                span.set__item-first transcripts: 
+                | The channel in which you want to save your ticket transcripts 
+                span.set__item-last (Example: #modlogs, #ticket-transcripts)
+            li.set__item
+              span 
+                span.set__item-first category: 
+                | The category in which you want to manage your tickets 
+                span.set__item-last (Example: #tickets)
+            li.set__item 
+              span 
+                span.set__item-first blacklist: 
+                | This is the role which will be given to the user when you use /blacklist command 
+                span.set__item-last (Example: @ticket_bl)
+            li.set__item 
+              span
+                span.set__item-first manager: 
+                | The managers who can manage your tickets 
+                span.set__item-last (Example: @Staff, @Mod)
+            li.set__item 
+              span 
+                span.set__item-first first btn, second btn, third btn: 
+                | Custom buttons/id's of your tickets 
+                span.set__item-first [Make sure they are not in caps and do not contain special characters]
+          a.button(href="/faq") FAQ
+
+        .set__doc.set__doc2
+          h1.set__docT Viewing your current configuration 
+          p.set__docD If you feel something's wrong with the configuration, you can always just run 
+            span.codeblock /settings view 
+            | in your server, if you need to change something, just run 
+            span.codeblock /settings edit 
+            | again 
+        .set__doc.set__doc2
+          h1.set__docT Blacklisting users 
+          p.set__docD Our blacklist command is very simple, you can run 
+            span.codeblock /ticket_bl 
+            | to blacklist an user from creating any more tickets (unless they are whitelisted again)
+          ul 
+            li.set__item 
+              span 
+                span.set__item-first target: 
+                | As the name suggests, the user/ target you want to blacklist 
+            li.set__item 
+              span 
+                span.set__item-first reason: 
+                | The reason that person is getting blacklisted for..
+            li.set__item 
+              span 
+                span.set__item-first duration: 
+                | The duration you want that person blacklisted for [ BETA ] (Make sure the duration endswith "ms", "s", "m", "d", "w" | This feature may not work properly as the bot may go offline many times, but don't worry! All your ticket information is saved in our database)    
+          
+
+
+  include footer.pug
+  script(src='js/main.js')

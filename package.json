@@ -1,0 +1,45 @@
+{
+  "name": "staque",
+  "version": "2.0.0",
+  "description": "A ticket bot",
+  "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Woter",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "body-parser": "^1.19.1",
+    "cookies": "^0.8.0",
+    "disco-oauth": "^5.1.1",
+    "discord-api-types": "^0.25.2",
+    "discord-html-transcripts": "^1.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "glob": "^7.1.7",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.2",
+    "ms": "^2.1.3",
+    "pug": "^3.0.2",
+    "remove": "^0.1.5",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "discord.js": "^13.4.0",
+    "install": "^0.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woterr/staque.git"
+  },
+  "bugs": {
+    "url": "https://github.com/woterr/staque/issues"
+  },
+  "homepage": "https://staque.herokuapp.com"
+}

@@ -1,0 +1,80 @@
+doctype html
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title staque
+  link(rel="shortcut icon", href="/images/logo.png", type="image/png")
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/faq.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+
+body 
+  include nav.pug
+  section.accordion.container.section
+    .accordion__container.grid
+      .accordion__item
+        header.accordion__header.hover_element
+          i.bx.bx-plus.accordion__icon
+          h3.accordion__title What is staque?
+        .accordion__content
+          p.accordion__description
+            | staque is a ticket bot that allows you to connect with
+            | your server members, it is easy to setup and use.
+      .accordion__item
+        header.accordion__header.hover_element
+          i.bx.bx-plus.accordion__icon
+          h3.accordion__title Unable to make tickets
+        .accordion__content
+          p.accordion__description
+            | Make sure that staque role is above @everyone role. If you
+            | still have issues, join our support server
+      .accordion__item
+        header.accordion__header.hover_element
+          i.bx.bx-plus.accordion__icon
+          h3.accordion__title
+            | How do I make a custom description??
+        .accordion__content
+          p.accordion__description
+            | When you use the
+            span.codeblock /settings edit
+            |  command, it asks you to add a description, here, you can add your custom
+            | description, we will make a dashboard for this soon!
+      .accordion__item
+        header.accordion__header.hover_element
+          i.bx.bx-plus.accordion__icon
+          h3.accordion__title How to blacklist a user
+        .accordion__content
+          p.accordion__description
+            | Once you have setup your server using
+            span.codeblock /settings edit
+            | , you can use
+            span.codeblock /ticket_bl
+            |  to blacklist a user from creating tickets.
+  include footer.pug
+
+  script.
+    const accordionItems = document.querySelectorAll(".accordion__item");
+    accordionItems.forEach((item) => {
+    const accordionHeader = item.querySelector(".accordion__header");
+    accordionHeader.addEventListener("click", () => {
+    const openItem = document.querySelector(".accordion-open");
+    toggleItem(item);
+    if (openItem && openItem !== item) {
+    toggleItem(openItem);
+    }
+    });
+    });
+    const toggleItem = (item) => {
+    const accordionContent = item.querySelector(".accordion__content");
+    if (item.classList.contains("accordion-open")) {
+    accordionContent.removeAttribute("style");
+    item.classList.remove("accordion-open");
+    } else {
+    accordionContent.style.height = accordionContent.scrollHeight + "px";
+    item.classList.add("accordion-open");
+    }
+    };
+
+  script(src='js/main.js')
