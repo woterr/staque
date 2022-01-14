@@ -1,26 +1,16 @@
 doctype html
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible', content='IE=edge')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
-<<<<<<< HEAD
   title staque
   link(rel="shortcut icon", href="/images/logo.png", type="image/png")
-=======
-  title Polygon Ticket - The discord bot
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   link(rel='stylesheet', href='/css/main.css')
   link(rel='stylesheet', href='/css/dashboard.css')
   link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
  
 
-<<<<<<< HEAD
 body
   include ../nav.pug
 
@@ -30,17 +20,6 @@ body
         img(src=guild.iconURL({ dyniamic: true, size: 32}), alt="Server logo")
       div.note 
         span <i class='bx bx-error'></i> If you do not see your saved changes, please do refresh twice or so! We prefer using our slash command. Thank you for your cooperation!
-=======
-body#dashboard
-  include ../nav.pug
-
-  section.container.dashboard.section
-    div.grid.dashboard__container
-      h1.guild_name(style="margin-bottom: 1rem") #{guild.name}
-        img(src=guild.iconURL({ dyniamic: true, size: 32}), alt="")
-      div.note 
-        span <i class='bx bx-error'></i> Note: Some data might not be visible as "saved", but everytime you press on "save" on any of the modules below, data is saved to our database
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
       .dashboard__data.dashboard__column
         .guild__stats
           .guild__stats-title Guild stats
