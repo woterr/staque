@@ -16,11 +16,10 @@ client.on("interactionCreate", async (interaction) => {
   const data = await ticketSetup.findOne({ GuildId: guild.id });
   if (!data) return;
   if (!data.Buttons.includes(customId)) return;
-  await interaction.deferUpdate();
 
   // const ticketData = DB.findOne({ MemberId: interaction.member.id });
   // if (ticketData) {
-  //   return interaction.followUp({
+  //   return await interaction.followUp({
   //     content: `You already have a ticket, you cannot create more than 1 ticket at a time`,
   //     ephemeral: true,
   //   });
@@ -34,7 +33,7 @@ client.on("interactionCreate", async (interaction) => {
 
   if (data) {
     if (member.roles.cache.has(data.TicketBLId)) {
-      return interaction.followUp({
+      return await interaction.followUp({
         content: "You are blacklisted from creating tickets",
         ephemeral: true,
       });
@@ -116,7 +115,7 @@ client.on("interactionCreate", async (interaction) => {
           });
 
           // interaction.deferUpdate();
-          interaction.followUp({
+          await interaction.followUp({
             content: `Your ticket has been created! <#${channel.id}>`,
             ephemeral: true,
           });
@@ -129,7 +128,7 @@ client.on("interactionCreate", async (interaction) => {
         );
 
       console.log(err);
-      interaction.followUp({ embeds: [errEmb], ephemeral: true });
+      await interaction.followUp({ embeds: [errEmb], ephemeral: true });
     }
   }
 });

@@ -39,4 +39,14 @@ client.on("interactionCreate", async (interaction) => {
     const command = client.slashCommands.get(interaction.commandName);
     if (command) command.run(client, interaction);
   }
+
+  // button
+  if (interaction.isButton()) {
+    console.log(
+      interaction.member.user.username,
+      interaction.member.id,
+      "button"
+    );
+    await interaction.deferUpdate();
+  }
 });

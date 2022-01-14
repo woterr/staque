@@ -14,7 +14,7 @@ client.on("interactionCreate", async (interaction) => {
   if (!interaction.isButton()) return;
   const { guild, channel, customId, member } = interaction;
   if (!["close", "lock", "unlock", "delete", "save"].includes(customId)) return;
-  interaction.deferUpdate();
+  // await interaction.deferReply();
 
   const embed = new MessageEmbed().setColor("a6ec6c");
   const setupData = await ticketSetup.findOne({ GUildId: guild.id });
@@ -22,9 +22,9 @@ client.on("interactionCreate", async (interaction) => {
     DB.findOne({ ChannelId: interaction.channel.id }, async (err, data) => {
       if (err) return console.log(err);
       if (!data) {
-        return interaction.followUp({
+        return await interaction.channel.send({
           content: `<@${interaction.member.id}>, :no_entry: No data was found regarding this ticket in our database, please delete it manually`,
-          ephemeral: true,
+          // ephemeral: true,
         });
       }
       const member1 = interaction.member;
@@ -32,7 +32,7 @@ client.on("interactionCreate", async (interaction) => {
       switch (customId) {
         case "lock":
           if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
-            return interaction.followUp({
+            return await interaction.followUp({
               embeds: [
                 embed.setDescription(
                   `<@${interaction.member.id}>, :no_entry: You do not have access to use this`
@@ -42,7 +42,7 @@ client.on("interactionCreate", async (interaction) => {
             });
 
           if (data.Locked === true)
-            return interaction.followUp({
+            return await interaction.followUp({
               embeds: [
                 embed.setDescription("🔒 This ticket is already locked"),
               ],
@@ -57,7 +57,7 @@ client.on("interactionCreate", async (interaction) => {
             SEND_MESSAGES: false,
           });
 
-          interaction.channel.send({
+          await interaction.channel.send({
             embeds: [embed.setDescription(`🔒 This ticket is now locked`)],
           });
 
@@ -65,7 +65,7 @@ client.on("interactionCreate", async (interaction) => {
 
         case "unlock":
           if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
-            return interaction.followUp({
+            return await interaction.followUp({
               embeds: [
                 embed.setDescription(
                   `<@${interaction.member.id}>, :no_entry: You do not have access to use this`
@@ -75,7 +75,7 @@ client.on("interactionCreate", async (interaction) => {
             });
 
           if (data.Locked == false)
-            return interaction.followUp({
+            return await interaction.followUp({
               embeds: [embed.setDescription("🔒 Ticket is already unlocked")],
               ephemeral: true,
             });
@@ -93,8 +93,29 @@ client.on("interactionCreate", async (interaction) => {
           break;
 
         case "close":
+          // interaction.deferUpdate();
+          // if (data.Closed === true)
+          //   return await interaction.followUp({
+          //     embeds: [embed.setDescription("🔒 Ticket is already closed")],
+          //     ephemeral: true,
+          //   });
+
+          // await DB.updateOne(
+          //   { ChannelId: interaction.channel.id },
+          //   { Closed: true }
+          // );
+
+          // interaction.channel.permissionOverwrites.edit(data.MemberId, {
+          //   VIEW_CHANNEL: false,
+          //   SEND_MESSAGES: false,
+          //   READ_MESSAGE_HISTORY: false,
+          // });
+
+          // interaction.channel.send({
+          //   embeds: [embed.setDescription(`🔐 This ticket is now closed`)],
+          // });
           if (data.Closed === true)
-            return interaction.followUp({
+            return await interaction.followUp({
               embeds: [embed.setDescription("🔒 Ticket is already closed")],
               ephemeral: true,
             });
@@ -103,21 +124,19 @@ client.on("interactionCreate", async (interaction) => {
             { ChannelId: interaction.channel.id },
             { Closed: true }
           );
+          embed.setDescription(`🔒 This ticket is now closed`);
 
           interaction.channel.permissionOverwrites.edit(data.MemberId, {
             VIEW_CHANNEL: false,
             SEND_MESSAGES: false,
             READ_MESSAGE_HISTORY: false,
           });
-
-          interaction.followUp({
-            embeds: [embed.setDescription(`🔐 This ticket is now closed`)],
-          });
+          interaction.channel.send({ embeds: [embed] });
           break;
 
         case "save":
           if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
-            return interaction.followUp({
+            return await interaction.followUp({
               embeds: [
                 embed.setDescription(
                   `<@${interaction.member.id}>, :no_entry: You do not have access to use this`
@@ -136,7 +155,7 @@ client.on("interactionCreate", async (interaction) => {
             interaction.guild.channels.cache.get(setupData.TranscriptId);
 
           if (!checkForTranscriptChannel)
-            return interaction.followUp({
+            return await interaction.followUp({
               embeds: [
                 embed.setDescription(
                   `<@${interaction.member.id}>, :no_entry: There was an error trying to save this ticket, please run \`/setup\` again\n\nTranscript not saved.`
@@ -172,7 +191,7 @@ client.on("interactionCreate", async (interaction) => {
 
         case "delete":
           if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
-            return interaction.followUp({
+            return await interaction.followUp({
               embeds: [
                 embed.setDescription(
                   `<@${interaction.member.id}>, :no_entry: You do not have access to use this`
@@ -195,7 +214,7 @@ client.on("interactionCreate", async (interaction) => {
           break;
       }
     });
-  } catch {
+  } catch (err) {
     const errEmb = new MessageEmbed()
       .setColor("RED")
       .setDescription(
@@ -203,6 +222,6 @@ client.on("interactionCreate", async (interaction) => {
       );
 
     console.log(err);
-    interaction.followUp({ embeds: [errEmb], ephemeral: true });
+    await interaction.followUp({ embeds: [errEmb], ephemeral: true });
   }
 });
