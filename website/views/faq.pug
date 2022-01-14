@@ -4,7 +4,6 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible', content='IE=edge')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
-<<<<<<< HEAD
   title staque
   link(rel="shortcut icon", href="/images/logo.png", type="image/png")
   link(rel='stylesheet', href='/css/main.css')
@@ -13,63 +12,6 @@ head
 
 body 
   include nav.pug
-=======
-  title Polygon Ticket - The discord bot
-  link(rel='stylesheet', href='/css/main.css')
-  link(rel='stylesheet', href='/css/faq.css')
-  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js', integrity='sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==', crossorigin='anonymous', referrerpolicy='no-referrer')
-  link(rel='stylesheet', href='https://unpkg.com/swiper@7/swiper-bundle.min.css')
-  script(src='https://unpkg.com/swiper@7/swiper-bundle.min.js')
-
-body
-  header#header.header.faq-header
-    nav.nav.container
-      a.nav__logo(href='/')
-        i.bx.bx-polygon.nav__logo-icon
-        |  Polygon ticket
-      #nav-menu.nav__menu
-        ul.nav__list
-          span.list-header Menu
-          li.nav__item
-            a.nav__link(href='/') Home
-          li.nav__item
-            a.nav__link(href='/setup') Setup
-          li.nav__item
-            a.nav__link(href='/faq') FAQ
-          li.nav__item
-            a.nav__link(href='/invite') Invite
-          li.nav__item
-            a.nav__link(href='/support') Support
-        ul.nav__list.nav_links_list(style='margin-left: 3rem; row-gap: 0.5rem')
-          span.list-header(style='margin-bottom: 2rem') Links
-          li.nav__item(style='padding: 10px 0px; margin: 0px')
-            a.nav__link(href='/termsofservice', style='font-size: 1rem') Terms of service
-          li.nav__item(style='padding: 10px 0px; margin: 0px')
-            a.nav__link(href='/privacypolicy', style='font-size: 1rem') Privacy policy
-      .right_side-nav
-        if user 
-          .login__btn
-            a.login__icon.hover_element(href='/dashboard')
-              i.bx.bxs-dashboard
-          .login__btn
-            a.login__icon.hover_element(href='/logout')
-              i.bx.bx-log-out
-          img.user_avatar(src=user.avatarUrl(32), alt='')
-
-        else 
-          .login__btn
-            a.login__icon.hover_element(href='/login')
-              i.bx.bx-log-in
-              
-        #scroll-top.scroll-top.hover_element
-          i.bx.bxs-chevron-up
-        #nav-toggle.nav__toggle.hover_element
-          .toggle__icon
-
-  .cursor.faq-cursor
-
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   section.accordion.container.section
     .accordion__container.grid
       .accordion__item

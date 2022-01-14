@@ -10,13 +10,10 @@ router.get("/invite", (req, res) =>
   )
 );
 
-<<<<<<< HEAD
 router.get("/support", (req, res) => {
   res.redirect(`https://discord.gg/zBDcUMZwGN`);
 });
 
-=======
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 router.get("/login", (req, res) => {
   res.redirect(
     `https://discord.com/api/oauth2/authorize?client_id=${process.env.botid}&redirect_uri=${process.env.dashboardURL}/auth&response_type=code&scope=guilds%20identify&prompt=none`

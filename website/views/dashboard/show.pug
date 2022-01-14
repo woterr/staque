@@ -63,7 +63,6 @@ body#dashboard
             .guild__stats-memberCount.guild__stats-item
               span.guild__stats-item-title MFA level: 
                 span.guild__stats-item-title-color #{guild.mfaLevel}
-<<<<<<< HEAD
         form.general-settings-form(action="/dashboard/servers/" + guild.id + "/general?_method=PUT", method="post")
           .general-settings
             .guild__stats-title Configuration 
@@ -120,31 +119,4 @@ body#dashboard
               button.save_btn(type="submit") Save
 
   script(src="/js/main.js") 
-=======
-        form.general-settings-form(action="/servers/" + guild.id + "/general?_method=PUT", method="post")
-          .general-settings
-            .guild__stats-title Setup 
-              span.codeblock /setup
-            .general-settings-content
-              .ticket-channel.general-item
-                span.general-settings-title Ticket channel: 
-                select.form-control(name="ticketChannelId")
-                  each channel of Array.from(guild.channels.cache.filter(c => c.type === "GUILD_TEXT").values())
-                    option(value=channel.id) ##{channel.name}
-              .ticket-transcripts.general-item
-                span.general-settings-title Ticket Transcripts: 
-                select.form-control(name="ticketTranscriptsId")
-                  each channel of Array.from(guild.channels.cache.filter(c => c.type === "GUILD_TEXT").values())
-                    option(value=channel.id) ##{channel.name}
-              .ticket-role.general-item
-                span.general-settings-title Blacklist role: 
-                select.form-control(name="blId")
-                  each role of Array.from(guild.roles.cache.filter(r => r.name !== "@everyone").values())
-                    option(value=role.id) @#{role.name}
-            div.btn_div
-              button.save_btn(type="submit") Save
-
-
-  script(src='js/nocursor.js')
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 

@@ -17,7 +17,6 @@ head
 body#dashboard
   include ../nav.pug
 
-<<<<<<< HEAD
   section.dashboard.section
     div.grid.dashboard__container.container
       h2.section__title Dashboard
@@ -36,18 +35,3 @@ body#dashboard
                   span.name__acronym.guild__name #{guild.nameAcronym}
 
   script(src='js/main.js')
-=======
-  section.container.dashboard.section
-    div.grid.dashboard__container
-      h1.section__title Dashboard
-      .dashboard__data 
-        each guild in guilds 
-          a(href="dashboard/servers/" + guild.id)
-            if guild.icon 
-              div.guild__icon
-                img(alt=guild.name, src=guild.iconURL({dyniamic: true, size: 128})) 
-            else
-              span.name__acronym #{guild.nameAcronym}
-
-  script(src='js/nocursor.js')
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c

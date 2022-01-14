@@ -16,11 +16,7 @@ client.on("interactionCreate", async (interaction) => {
   if (!["close", "lock", "unlock", "delete", "save"].includes(customId)) return;
   interaction.deferUpdate();
 
-<<<<<<< HEAD
   const embed = new MessageEmbed().setColor("a6ec6c");
-=======
-  const embed = new MessageEmbed().setColor("773dff");
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   const setupData = await ticketSetup.findOne({ GUildId: guild.id });
   try {
     DB.findOne({ ChannelId: interaction.channel.id }, async (err, data) => {
@@ -185,13 +181,9 @@ client.on("interactionCreate", async (interaction) => {
               ephemeral: true,
             });
           interaction.channel.send({
-<<<<<<< HEAD
             embeds: [
               embed.setDescription(`Deleting ticket..`).setColor("#ff392e"),
             ],
-=======
-            embeds: [embed.setDescription(`Deleting ticket..`)],
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
             ephemeral: true,
           });
           // interaction.deferUpdate();

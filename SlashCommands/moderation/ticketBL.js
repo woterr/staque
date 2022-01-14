@@ -34,11 +34,7 @@ module.exports = {
       GuildId: interaction.guild.id,
     });
 
-<<<<<<< HEAD
     const embed = new MessageEmbed().setColor("a6ec6c");
-=======
-    const embed = new MessageEmbed().setColor("773dff");
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 
     if (guildData) {
       const target = interaction.options.getMember("target");

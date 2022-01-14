@@ -1,61 +1,3 @@
-<<<<<<< HEAD
-=======
-@import url("http://fonts.cdnfonts.com/css/cocomat");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-:root {
-  --header-height: 4.5rem;
-
-  --first-color: #943fe4;
-  --button-color: #5f35d1;
-  --button-color-alt: #502bb4;
-  --title-color: #e4e4e4;
-  --text-color: #838383;
-  --text-color-light: #c4c4c4;
-  --link-color: #fff;
-  --body-color: #0e0e0e;
-  --container-color: #fff;
-  --border-color: #c2c2c2;
-
-  --biggest-font: 2rem;
-  --h1-font: 1.5rem;
-  --h2-font: 1.25rem;
-  --h3-font: 1rem;
-  --normal-font: 0.983rem;
-  --small-font: 0.813rem;
-  --smaller-font: 0.75rem;
-
-  --font-medium: 500;
-  --font-bold: 700;
-
-  --tooltip: 10;
-}
-
-@media screen and (min-width: 968px) {
-  :root {
-    --biggest-font: 2.5rem;
-    --h1-font: 2.25rem;
-    --h2-font: 1.5rem;
-    --h3-font: 1.25rem;
-    --normal-font: 1rem;
-    --small-font: 0.875rem;
-    --smaller-font: 0.813rem;
-  }
-}
-
-#faq-body {
-  font-family: "Poppins", sans-serif;
-}
-
-.faq-header {
-  z-index: 1;
-}
-
-.faq-cursor {
-  z-index: 1;
-}
-
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 .accordion {
   display: grid;
   align-content: center;
@@ -96,11 +38,7 @@
 .accordion__item {
   border-radius: 0.25rem;
   box-shadow: 0 2px 6px rgba(8, 8, 8, 0.1);
-<<<<<<< HEAD
   background: var(--container-color);
-=======
-  background: #0f0f0f;
->>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   position: relative;
   transition: all 0.25s;
 }
