@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# Polygon - v2
-
-After realizing that the previous bot had many MANY bugs, I decided to remake the commands and the website, the website is still under progress but the bot is updated, the new version will be public as soon as the website is complete.
-
 =======
 # staque - v2
 
