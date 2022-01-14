@@ -71,7 +71,11 @@ client.on("interactionCreate", async (interaction) => {
           await channel.setParent(data.Category);
 
           const embed = new MessageEmbed()
+<<<<<<< HEAD
             .setColor("a6ec6c")
+=======
+            .setColor("773dff")
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
             .setAuthor({
               name: `${guild.name} | Ticket: ${ticketId}`,
               icon: guild.iconURL({ dynamic: true }),

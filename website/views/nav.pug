@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 #scroll-up.scrollup
   i.bx.bxs-chevron-up
@@ -7,6 +8,11 @@ header#header.header
     a.nav__logo(href="/")
       img(src="/images/logo.png") 
       span staque 
+=======
+header#header.header 
+  nav.nav.container 
+    a.nav__logo(href="#") Polygon 
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
     #nav-menu.nav__menu 
       ul.nav__list 
         li.nav__item 
@@ -32,6 +38,7 @@ header#header.header
       <i class='bx bx-menu-alt-right'></i>
 
     if user
+<<<<<<< HEAD
       div.button__header-div  
         .dropdown 
           img#drop-toggle.user__avatar(src=user.avatarUrl(32))
@@ -41,6 +48,12 @@ header#header.header
     else 
       div.button__header-div
         a.button__header.dropdown_btn(href="/login") Login 
+=======
+      a.button.button__header(href="/dashboard") Dashboard 
+      img.user__avatar(src=user.avatarUrl(32))
+    else 
+      a.button.button__header(href="/login") Login 
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 
         
 

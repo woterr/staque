@@ -4,6 +4,7 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible', content='IE=edge')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
+<<<<<<< HEAD
   title staque
   link(rel="shortcut icon", href="/images/logo.png", type="image/png")
   link(rel='stylesheet', href='/css/main.css')
@@ -12,15 +13,79 @@ head
 
 body 
   include nav.pug
+=======
+  title Polygon Ticket - The discord bot
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/faq.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js', integrity='sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==', crossorigin='anonymous', referrerpolicy='no-referrer')
+  link(rel='stylesheet', href='https://unpkg.com/swiper@7/swiper-bundle.min.css')
+  script(src='https://unpkg.com/swiper@7/swiper-bundle.min.js')
+
+body
+  header#header.header.faq-header
+    nav.nav.container
+      a.nav__logo(href='/')
+        i.bx.bx-polygon.nav__logo-icon
+        |  Polygon ticket
+      #nav-menu.nav__menu
+        ul.nav__list
+          span.list-header Menu
+          li.nav__item
+            a.nav__link(href='/') Home
+          li.nav__item
+            a.nav__link(href='/setup') Setup
+          li.nav__item
+            a.nav__link(href='/faq') FAQ
+          li.nav__item
+            a.nav__link(href='/invite') Invite
+          li.nav__item
+            a.nav__link(href='/support') Support
+        ul.nav__list.nav_links_list(style='margin-left: 3rem; row-gap: 0.5rem')
+          span.list-header(style='margin-bottom: 2rem') Links
+          li.nav__item(style='padding: 10px 0px; margin: 0px')
+            a.nav__link(href='/termsofservice', style='font-size: 1rem') Terms of service
+          li.nav__item(style='padding: 10px 0px; margin: 0px')
+            a.nav__link(href='/privacypolicy', style='font-size: 1rem') Privacy policy
+      .right_side-nav
+        if user 
+          .login__btn
+            a.login__icon.hover_element(href='/dashboard')
+              i.bx.bxs-dashboard
+          .login__btn
+            a.login__icon.hover_element(href='/logout')
+              i.bx.bx-log-out
+          img.user_avatar(src=user.avatarUrl(32), alt='')
+
+        else 
+          .login__btn
+            a.login__icon.hover_element(href='/login')
+              i.bx.bx-log-in
+              
+        #scroll-top.scroll-top.hover_element
+          i.bx.bxs-chevron-up
+        #nav-toggle.nav__toggle.hover_element
+          .toggle__icon
+
+  .cursor.faq-cursor
+
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   section.accordion.container.section
     .accordion__container.grid
       .accordion__item
         header.accordion__header.hover_element
           i.bx.bx-plus.accordion__icon
+<<<<<<< HEAD
           h3.accordion__title What is staque?
         .accordion__content
           p.accordion__description
             | staque is a ticket bot that allows you to connect with
+=======
+          h3.accordion__title What is Polygon Ticket?
+        .accordion__content
+          p.accordion__description
+            | Polygon Tickets is a ticket bot that allows you to connect with
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
             | your server members, it is easy to setup and use.
       .accordion__item
         header.accordion__header.hover_element
@@ -28,7 +93,11 @@ body
           h3.accordion__title Unable to make tickets
         .accordion__content
           p.accordion__description
+<<<<<<< HEAD
             | Make sure that staque role is above @everyone role. If you
+=======
+            | Make sure that Polygon Ticket role is above @everyone role. If you
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
             | still have issues, join our support server
       .accordion__item
         header.accordion__header.hover_element
@@ -38,9 +107,16 @@ body
         .accordion__content
           p.accordion__description
             | When you use the
+<<<<<<< HEAD
             span.codeblock /settings edit
             |  command, it asks you to add a description, here, you can add your custom
             | description, we will make a dashboard for this soon!
+=======
+            span.codeblock /ticket_panel
+            |  command, it asks you
+            |               if you want to add a description, here, you can add your custom
+            |               description, we will make a dashboard for this soon!
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
       .accordion__item
         header.accordion__header.hover_element
           i.bx.bx-plus.accordion__icon
@@ -48,12 +124,21 @@ body
         .accordion__content
           p.accordion__description
             | Once you have setup your server using
+<<<<<<< HEAD
             span.codeblock /settings edit
             | , you can use
             span.codeblock /ticket_bl
             |  to blacklist a user from creating tickets.
   include footer.pug
 
+=======
+            span.codeblock /setup
+            | , you can use
+            span.codeblock /ticket_bl
+            |  to blacklist a user from
+            |               creating tickets. And to whitelist them, you need to use
+            span.codeblock /ticket_wl
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   script.
     const accordionItems = document.querySelectorAll(".accordion__item");
     accordionItems.forEach((item) => {

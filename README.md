@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 # Polygon - v2
 
 After realizing that the previous bot had many MANY bugs, I decided to remake the commands and the website, the website is still under progress but the bot is updated, the new version will be public as soon as the website is complete.
 
+=======
+# staque - v2
+
+After realizing that the previous bot had many MANY bugs, I decided to remake the commands and the website, the website is still under progress but the bot is updated, the new version will be public as soon as the website is complete.
+
+Also guess what? I rebranded this bot to "staque" lmao
+
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 ## Features
 - Better settings(setup) command: You can now use `/settings view` or `/settings edit` to view or configure the bot settings for your server
 - Different collection for server settings and tickets: Previously, I had tickets and ticket system setup in the same collection, now it's seperated 

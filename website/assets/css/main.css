@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+=======
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 :root {
   --header-height: 4.5rem;
 
+<<<<<<< HEAD
   --first-color: #a6ec6c;
   --first-color-dark: #68db9c;
   --first-color-light: #75f390;
@@ -11,6 +15,14 @@
   --button-t-color: #1e3324;
   --body-color: #1d1e24;
   --container-color: #2d2e38;
+=======
+  --first-color: #a48ff0;
+  --first-color-dark: #9176f3;
+  --first-color-light: #bf9afe;
+  --title-color: #ffffff;
+  --text-color: #c8c9ce;
+  --body-color: #1d1e24;
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 
   --body-font: "Poppins", sans-serif;
 
@@ -61,6 +73,7 @@ body {
   transition: all 0.3s;
 }
 
+<<<<<<< HEAD
 body,
 button,
 input {
@@ -68,6 +81,8 @@ input {
   font-size: var(--normal-font);
 }
 
+=======
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 h1,
 h2,
 h3 {
@@ -85,6 +100,7 @@ a {
 }
 
 img {
+<<<<<<< HEAD
   max-width: 100%;
   height: auto;
 }
@@ -102,6 +118,19 @@ button {
 
 ::-webkit-scrollbar-thumb {
   background: #0a0a0a;
+=======
+  min-width: 100%;
+  height: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background: #131313;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #202020;
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   border-radius: 1rem;
 }
 
@@ -111,6 +140,7 @@ button {
   padding: 4.5rem 0 1rem;
 }
 
+<<<<<<< HEAD
 .section__title {
   font-size: var(--h2-font);
   color: var(--title-color);
@@ -121,6 +151,18 @@ button {
 
 .container {
   max-width: 1224px;
+=======
+.section__title,
+.section__title-center {
+  font-size: var(--h2-font);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.container {
+  max-width: 1024px;
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
@@ -130,6 +172,7 @@ button {
   gap: 1.5rem;
 }
 
+<<<<<<< HEAD
 .codeblock {
   background: var(--container-color);
   padding: 0.25rem;
@@ -163,14 +206,21 @@ main {
   display: none;
 }
 
+=======
+/* =========================== Buttons =========================== */
+
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 .button__header {
   display: none;
 }
 
+<<<<<<< HEAD
 .button__header:hover {
   transition: all 0.3s;
 }
 
+=======
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 /* =========================== Headers =========================== */
 
 .header {
@@ -225,6 +275,7 @@ main {
   font-weight: var(--font-semi-bold);
 }
 
+<<<<<<< HEAD
 .nav__logo {
   display: flex;
   align-items: center;
@@ -243,6 +294,8 @@ main {
   width: 25px;
 }
 
+=======
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 .nav__toggle {
   font-size: 1.3rem;
   cursor: pointer;
@@ -254,6 +307,7 @@ main {
   transition: all 0.3s;
 }
 
+<<<<<<< HEAD
 .dropdown {
   display: flex;
   flex-direction: column;
@@ -309,6 +363,8 @@ main {
   color: #f36666;
 }
 
+=======
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 @media screen and (max-width: 360px) {
   .section {
     padding: 3.5rem 0 1rem;
@@ -343,6 +399,7 @@ main {
     display: block;
   }
 
+<<<<<<< HEAD
   .button__header-div {
     display: flex;
     gap: 1rem;
@@ -352,11 +409,14 @@ main {
     clip-path: circle();
   }
 
+=======
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   .mobile__link {
     display: none;
   }
 
   .container {
+<<<<<<< HEAD
     margin-left: 1.5rem;
     margin-right: 1.5rem;
   }
@@ -461,4 +521,9 @@ main {
   .footer__container {
     grid-template-columns: repeat(3, 1fr);
   }
+=======
+    margin-left: auto;
+    margin-right: auto;
+  }
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
 }

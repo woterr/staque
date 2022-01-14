@@ -4,8 +4,12 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible', content='IE=edge')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
+<<<<<<< HEAD
   title staque
   link(rel="shortcut icon", href="/images/logo.png", type="image/png")
+=======
+  title Polygon Ticket - The discord bot
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   link(rel='stylesheet', href='/css/main.css')
   link(rel='stylesheet', href='/css/setup.css')
   link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
@@ -14,6 +18,7 @@ head
   script(src='https://unpkg.com/swiper@7/swiper-bundle.min.js')
 
 body#setup-body
+<<<<<<< HEAD
   include nav.pug 
 
   main.main 
@@ -91,4 +96,47 @@ body#setup-body
 
 
   include footer.pug
+=======
+  include nav.pug
+  .cursor
+  section#setup.setup.container
+    .setup__container.grid
+      img.setup__img(src='https://media.discordapp.net/attachments/923892443773034536/926385833458688020/setup.png', alt='')
+      .setup__data
+        h1.setup__title Setup
+        p.setup__description
+          | We have made it really easy for you to setup Polygon Ticket in your
+          | server, use our slash command
+          span.codeblock /setup
+          | . 
+          br
+          br
+          span.codeblock ticket_channel
+          |  - This is the channel
+          |             in which you want to allow your server members to create a ticket,
+          |             this is where the embed through which users create tickets is sent.
+          br
+          span.codeblock ticket_transcripts
+          |  - This is the
+          |             channel in which all your ticket transcripts are logged.
+          br
+          span.codeblock ticket_bl_id
+          |  - This is the role which
+          |             is given to users when they are blacklisted from creating tickets.
+  section#setup.setup.container.section
+    .setup__container.grid
+      .setup__data
+        h1.setup__title Ticket panel
+        p.setup__description
+          | Once you have setup your server, you can create a panel using
+          span.codeblock /ticket_panel
+          | . 
+          br
+          br
+          span.codeblock description
+          |  - You can add your own
+          |             description to ticket panels, we have no restrictions against it as
+          |             long as it follows discord TOS
+      img.setup__img(src='https://media.discordapp.net/attachments/923892443773034536/926385833458688020/setup.png', alt='')
+>>>>>>> 58edd843316baa9d7e06ac31ceec1c0369ac077c
   script(src='js/main.js')
