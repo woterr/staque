@@ -3,7 +3,7 @@
 
 The ideal Discord bot for managing tickets on and around your server! **staque** is powered by [discord.js](https://discord.js.org/#/)
 
-![Example](https://imgur.com/a/ccsSuW8)
+![Example](https://imgur.com/a/ccsSuW8.png)
 
 ## Invite
 If you'd like to add **staque** to your server, use the following link:<br>
