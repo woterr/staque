@@ -31,6 +31,8 @@ client.on("interactionCreate", async (interaction) => {
 
       switch (customId) {
         case "lock":
+          await interaction.deferUpdate();
+
           if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
             return await interaction.followUp({
               embeds: [
@@ -93,27 +95,6 @@ client.on("interactionCreate", async (interaction) => {
           break;
 
         case "close":
-          // interaction.deferUpdate();
-          // if (data.Closed === true)
-          //   return await interaction.followUp({
-          //     embeds: [embed.setDescription("🔒 Ticket is already closed")],
-          //     ephemeral: true,
-          //   });
-
-          // await DB.updateOne(
-          //   { ChannelId: interaction.channel.id },
-          //   { Closed: true }
-          // );
-
-          // interaction.channel.permissionOverwrites.edit(data.MemberId, {
-          //   VIEW_CHANNEL: false,
-          //   SEND_MESSAGES: false,
-          //   READ_MESSAGE_HISTORY: false,
-          // });
-
-          // interaction.channel.send({
-          //   embeds: [embed.setDescription(`🔐 This ticket is now closed`)],
-          // });
           if (data.Closed === true)
             return await interaction.followUp({
               embeds: [embed.setDescription("🔒 Ticket is already closed")],
