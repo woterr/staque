@@ -188,3 +188,8 @@
   color: var(--text-color);
   padding: 0 0.5rem 0 0.5rem;
 }
+
+.form-input-readonly {
+  cursor: not-allowed;
+  color: #696969;
+}
