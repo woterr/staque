@@ -1,5 +1,5 @@
-const authClient = require("./auth-client.js");
-const bot = require("../index.js");
+const authClient = require("./auth-client");
+const bot = require("../index");
 
 const sessions = new Map();
 

@@ -1,7 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const authClient = require(`../auth-client`);
-
+const sessions = require("../sessions");
 const router = express.Router();
 
 router.get("/invite", (req, res) =>
@@ -24,9 +24,9 @@ router.get("/auth", async (req, res) => {
   try {
     const code = req.query.code;
     const key = await authClient.getAccess(code);
-    res.cookies.set("key", key);
 
-    res.redirect(`/dashboard`);
+    res.cookies.set("key", key);
+    res.redirect("/dashboard");
   } catch {
     res.redirect("/");
   }
