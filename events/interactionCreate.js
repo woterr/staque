@@ -2,7 +2,7 @@ const client = require("../index");
 
 client.on("interactionCreate", async (interaction) => {
   if (interaction.isButton()) {
-    await interaction.deferUpdate();
+    await interaction.reply({ content: ". . .", ephemeral: true });
   }
   // Slash Command Handling
   if (interaction.isCommand()) {
