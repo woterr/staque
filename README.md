@@ -1,17 +1,23 @@
-# staque - v2
 
-After realizing that the previous bot had many MANY bugs, I decided to remake the commands and the website, the website is still under progress but the bot is updated, the new version will be public as soon as the website is complete.
+## [staque](https://staque.herokuapp.com/)
 
-Also guess what? I rebranded this bot to "staque" lmao
+The ideal Discord bot for managing tickets on and around your server! **staque** is powered by [discord.js](https://discord.js.org/#/)
 
-## Features
+![Example](https://imgur.com/a/ccsSuW8)
 
-- Better settings(setup) command: You can now use `/settings view` or `/settings edit` to view or configure the bot settings for your server
-- Different collection for server settings and tickets: Previously, I had tickets and ticket system setup in the same collection, now it's seperated
-- Custom buttons: You can now add custom buttons to your ticket system
-- Blacklist: The blacklist command has been updated! Blacklist command now has `duration`, `reason` and it even has mod logs!
-- Managers: You can now choose who can manage tickets (lock, unlock, save & delete)
-- No more annoying pings: Every message is either in an embed or is visible to you only, you will not get pinged by the bot while managing tickets
-- Major bug fixes
+## Invite
+If you'd like to add **staque** to your server, use the following link:<br>
+🔗 **https://staque.herokuapp.com/invite**
 
-Thats it for now, i'll add more updates soon!
+## Usage
+* **/settings view** - Displays the bot's current server configurations.
+* **/settings edit** - Allows you to tailor the bot to your specific needs.
+* **!ticket_bl \<target> [reason] [duration]** - Prevents a user from creating new tickets. The target is the user you intend to blacklist. If you include a duration, it must be expressed in seconds, minutes, hours, days, or weeks. The time unit can be specified with a "s", "m", "h", "d", or "w"; for instance, `45s` or `2h`. 
+* **!ping** - Returns the websocket ping.
+
+
+## Suggestions, Bug Reports & Support
+If you find bugs, want to suggest features or need assistance with the bot, join the bot development server here: https://discord.gg/YheSrKtHxp
+
+## Self-Hosting
+It is not permitted to host your own copy of this bot; the source code is provided here so that users and other bot developers can see how the bot works. Please keep in mind that no help will be given for editing, compiling, or building any code in this repository, and any changes must be documented in accordance with the license.
