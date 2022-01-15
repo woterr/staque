@@ -20,4 +20,4 @@ If you'd like to add **staque** to your server, use the following link:<br>
 If you find bugs, want to suggest features or need assistance with the bot, join the bot development server here: https://discord.gg/YheSrKtHxp
 
 ## Self-Hosting
-It is not permitted to host your own copy of this bot; the source code is provided here so that users and other bot developers can see how the bot works. Please keep in mind that no help will be given for editing, compiling, or building any code in this repository, and any changes must be documented in accordance with the license.
+It isn't permitted to host your own copy of this bot; the source code is provided here so that users and other bot developers can see how the bot works. Please keep in mind that no help will be given for editing, compiling, or building any code in this repository, and any changes must be documented in accordance with the license.
