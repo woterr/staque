@@ -2,7 +2,6 @@
 
 The ideal Discord bot for managing tickets on and around your server! **staque** is powered by [discord.js](https://discord.js.org/#/), hosted on [heroku](https://heroku.com)
 
-Example
 [![Example](https://i.imgur.com/dAUeotD.png"Example")](https://i.imgur.com/dAUeotD.png "Example")
 
 ## Invite
