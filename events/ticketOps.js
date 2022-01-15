@@ -18,7 +18,7 @@ client.on("interactionCreate", async (interaction) => {
   await interaction.deferUpdate();
 
   const embed = new MessageEmbed().setColor("a6ec6c");
-  const setupData = await ticketSetup.findOne({ GUildId: guild.id });
+  const setupData = await ticketSetup.findOne({ GuildId: guild.id });
   try {
     DB.findOne({ ChannelId: interaction.channel.id }, async (err, data) => {
       if (err) return console.log(err);
