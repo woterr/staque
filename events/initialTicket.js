@@ -16,6 +16,7 @@ client.on("interactionCreate", async (interaction) => {
   const data = await ticketSetup.findOne({ GuildId: guild.id });
   if (!data) return;
   if (!data.Buttons.includes(customId)) return;
+  await interaction.deferUpdate();
 
   const ticketId = Math.floor(Math.random() * 90000) + 10000;
 
