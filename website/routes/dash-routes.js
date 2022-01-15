@@ -28,6 +28,7 @@ router.put("/servers/:id/:module", validateGuild, async (req, res) => {
           TicketBLId: req.body.blId || "1234567890",
           CategoryId: req.body.catId || "1234567890",
           Managers: req.body.managerId || "1234567890",
+          Buttons: [req.body.btn1, req.body.btn2, req.body.btn3],
         }).save();
       } else if (!data) {
         new setupDB({
