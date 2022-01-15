@@ -4,7 +4,7 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible', content='IE=edge')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
-  title 465 - Data not found
+  title Authorized
   link(rel="shortcut icon", href="/images/logo.png", type="image/png")
   link(rel='stylesheet', href='/css/main.css')
   link(rel='stylesheet', href='/css/err.css')
@@ -12,13 +12,8 @@ head
 .cursor
 section.container.err
   .grid.err_container
-    .err__data
-      p.err_top Error
-      p.err_title
-        | 465 
-        span(aria-hidden='true') 465
-        span(aria-hidden='true') 465
-      p.err_description Alright!! Looks like you forgot to run 
-        span.codeblock /settings edit 
-        | before accessing this page! Go back to your server and run the command, for more info look at our setup page
-      a.button(href='/setup') Setup
+    .err__data 
+        h1.main-err-logged You are logged in!
+        a.button(href='/dashboard', style="margin-bottom: 1.5rem;") Dashboard
+        a.button(href='/') Return home
+

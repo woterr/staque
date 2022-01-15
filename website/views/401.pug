@@ -21,19 +21,3 @@ section.container.err
       p.err_description You are unauthorized!
       a.button(href='/login', style="margin-bottom: 1rem;") Login
       a.button(href='/') Return home
-script.
-  let mouseCursor = document.querySelector(".cursor");
-  const links = document.getElementsByTagName("a");
-  window.addEventListener("mousemove", cursor);
-  function cursor(e) {
-  mouseCursor.style.top = e.pageY + "px";
-  mouseCursor.style.left = e.pageX + "px";
-  }
-  Array.from(links).forEach((link) => {
-  link.addEventListener("mouseover", () => {
-  mouseCursor.classList.add("focus");
-  });
-  link.addEventListener("mouseleave", () => {
-  mouseCursor.classList.remove("focus");
-  });
-  });

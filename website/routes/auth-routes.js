@@ -20,13 +20,15 @@ router.get("/login", (req, res) => {
   );
 });
 
+router.get("/authorized", (req, res) => res.render(`logged`));
+
 router.get("/auth", async (req, res) => {
   try {
     const code = req.query.code;
     const key = await authClient.getAccess(code);
 
     res.cookies.set("key", key);
-    res.redirect("/dashboard");
+    res.redirect("/authorized");
   } catch {
     res.redirect("/");
   }
