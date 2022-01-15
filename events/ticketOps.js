@@ -31,8 +31,6 @@ client.on("interactionCreate", async (interaction) => {
 
       switch (customId) {
         case "lock":
-          await interaction.deferUpdate();
-
           if (!member1.roles.cache.find((r) => r.id === setupData.Managers))
             return await interaction.followUp({
               embeds: [
