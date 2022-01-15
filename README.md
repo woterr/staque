@@ -13,7 +13,7 @@ If you'd like to add **staque** to your server, use the following link:<br>
 
 - `/settings view` - Displays the bot's current server configurations.
 - `/settings edit` - Allows you to tailor the bot to your specific needs.
-- `/ticket_bl \<target> [reason] [duration]` - Prevents a user from creating new tickets. The target is the user you intend to blacklist. If you include a duration, it must be expressed in seconds, minutes, hours, days, or weeks. The time unit can be specified with a "s", "m", "h", "d", or "w"; for instance, `45s` or `2h`.
+- `/ticket_bl <target> [reason] [duration]` - Prevents a user from creating new tickets. The target is the user you intend to blacklist. If you include a duration, it must be expressed in seconds, minutes, hours, days, or weeks. The time unit can be specified with a "s", "m", "h", "d", or "w"; for instance, `45s` or `2h`.
 - `/ping` - Returns the websocket ping.
 
 ## Suggestions, Bug Reports & Support
