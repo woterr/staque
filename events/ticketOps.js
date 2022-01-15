@@ -12,8 +12,8 @@ const { createTranscript } = require("discord-html-transcripts");
 
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isButton()) return;
+  const { guild, member, customId, channel } = interaction;
 
-  const { guild, channel, customId, member } = interaction;
   if (!["close", "lock", "unlock", "delete", "save"].includes(customId)) return;
 
   const embed = new MessageEmbed().setColor("a6ec6c");
