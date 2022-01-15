@@ -26,7 +26,7 @@ client.on("interactionCreate", async (interaction) => {
 
   if (data) {
     if (member.roles.cache.has(data.TicketBLId)) {
-      return await interaction.editReply({
+      return await interaction.followUp({
         content: "You are blacklisted from creating tickets",
         ephemeral: true,
       });
@@ -108,7 +108,7 @@ client.on("interactionCreate", async (interaction) => {
           });
 
           // interaction.deferUpdate();
-          await interaction.editReply({
+          await interaction.followUp({
             content: `Your ticket has been created! <#${channel.id}>`,
             ephemeral: true,
           });
@@ -121,7 +121,7 @@ client.on("interactionCreate", async (interaction) => {
         );
 
       console.log(err);
-      await interaction.editReply({ embeds: [errEmb], ephemeral: true });
+      await interaction.followUp({ embeds: [errEmb], ephemeral: true });
     }
   }
 });
