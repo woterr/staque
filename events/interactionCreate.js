@@ -1,6 +1,9 @@
 const client = require("../index");
 
 client.on("interactionCreate", async (interaction) => {
+  if (interaction.isButton()) {
+    await interaction.deferUpdate();
+  }
   // Slash Command Handling
   if (interaction.isCommand()) {
     const cmd = client.slashCommands.get(interaction.commandName);
@@ -38,15 +41,5 @@ client.on("interactionCreate", async (interaction) => {
     await interaction.deferReply({ ephemeral: false });
     const command = client.slashCommands.get(interaction.commandName);
     if (command) command.run(client, interaction);
-  }
-
-  // button
-  if (interaction.isButton()) {
-    console.log(
-      interaction.member.user.username,
-      interaction.member.id,
-      "button"
-    );
-    await interaction.deferUpdate();
   }
 });
