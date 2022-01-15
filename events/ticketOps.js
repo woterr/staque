@@ -12,9 +12,9 @@ const { createTranscript } = require("discord-html-transcripts");
 
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isButton()) return;
-  if (!["close", "lock", "unlock", "delete", "save"].includes(customId)) return;
 
   const { guild, channel, customId, member } = interaction;
+  if (!["close", "lock", "unlock", "delete", "save"].includes(customId)) return;
 
   const embed = new MessageEmbed().setColor("a6ec6c");
   const setupData = await ticketSetup.findOne({ GUildId: guild.id });
