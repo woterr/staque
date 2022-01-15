@@ -26,5 +26,5 @@ It is not permitted to host your own copy of this bot; the source code is provid
 
 ## Credit
 
-Developer: Woter#0059
-Contributor: volx#8075
+- Developer: Woter#0059
+- Contributor: volx#8075
