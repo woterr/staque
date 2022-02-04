@@ -1,4 +1,4 @@
-const { Client, CommandInteraction } = require("discord.js");
+const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "ping",
@@ -12,6 +12,9 @@ module.exports = {
    * @param {String[]} args
    */
   run: async (client, interaction, args) => {
-    interaction.reply({ content: `${client.ws.ping}ms!` });
+    const embed = new MessageEmbed().setColor("a6ec6c");
+    interaction.reply({
+      embeds: [embed.setDescription(`${client.ws.ping}ms!`)],
+    });
   },
 };
