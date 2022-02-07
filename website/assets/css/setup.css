@@ -10,17 +10,20 @@
 .set__docD {
   line-height: 150%;
   margin-bottom: 2rem;
+  line-height: 200%;
 }
 
 .set__doc2 ul {
   list-style: inside;
   list-style-type: disc;
+  line-height: 200%;
   margin-bottom: 2rem;
 }
 
 .set__doc2 ul li {
   margin-top: 0.35rem;
   margin-bottom: 0.35rem;
+  line-height: 200%;
 }
 
 .set__item-first {

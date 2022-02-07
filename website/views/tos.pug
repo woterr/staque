@@ -1,0 +1,77 @@
+doctype html
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title staque
+  meta(property='og:title', content='staque')
+  meta(property='og:description', content='A ticket bot that isn\'t short on features!\n The ideal Discord bot for managing tickets on and around your server.')
+  meta(property='og:image', content='/images/logo-bg.png')
+  link(rel="shortcut icon", href="/images/logo.png", type="image/png")
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/doc.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js', integrity='sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==', crossorigin='anonymous', referrerpolicy='no-referrer')
+  link(rel='stylesheet', href='https://unpkg.com/swiper@7/swiper-bundle.min.css')
+  script(src='https://unpkg.com/swiper@7/swiper-bundle.min.js')
+
+body#setup-body
+  include nav.pug 
+    
+
+  main.main 
+    section.terms.section 
+      .doc__container.container.grid          
+            h1.doc__header Terms of Service
+                p.doc__last-update Last updated: Feb 7, 2022
+            p.doc__desc These terms and conditions outline the rules and regulations for the use of staque's Website.
+            p.doc__desc staque is located at: https://staque.herokuapp.com
+            p.doc__desc By accessing this website we assume you accept these terms and conditions in full. Do not continue to use staque's website if you do not accept all of the terms and conditions stated on this page.
+            h2.doc__subhead Cookies
+            p.doc__desc We employ the use of cookies. By using staque's website you consent to the use of cookies in accordance with staque's privacy policy.
+            p.doc__desc Most of the modern day interactive web sites use cookies to enable us to retrieve user details for each visit. Cookies are used in some areas of our site to enable the functionality of this area and ease of use for those people visiting. Some of our affiliate / advertising partners may also use cookies.
+
+            h2.doc__subhead License
+            p.doc__desc Unless otherwise stated, staque and/or it's licensors own the intellectual property rights for all material on staque. All intellectual property rights are reserved. You may view and/or print pages from https://staque.herokuapp.com for your own personal use subject to restrictions set in these terms and conditions.
+
+            p.doc__desc You must not:
+            ul 
+                li.doc__item 
+                    span Republish material from https://staque.herokuapp.com
+                li.doc__item
+                    span Sell, rent or sub-license material from https://staque.herokuapp.com
+                li.doc__item
+                    span Reproduce, duplicate or copy material from https://staque.herokuapp.com
+                li.doc__item
+                    span Redistribute content from https://staque.herokuapp.com
+
+            h2.doc__subhead Reservation of Rights
+            p.doc__desc We reserve the right at any time and in its sole discretion to request that you remove all links or any particular link to our Web site. You agree to immediately remove all links to our Web site upon such request. We also reserve the right to amend these terms and conditions and its linking policy at any time. By continuing to link to our Web site, you agree to be bound to and abide by these linking terms and conditions.
+
+            h2.doc__subhead Removal of links from our website
+            p.doc__desc If you find any link on our Web site or any linked web site objectionable for any reason, you may contact us about this. We will consider requests to remove links but will have no obligation to do so or to respond directly to you.
+            p.doc__desc Whilst we endeavour to ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we commit to ensuring that the website remains available or that the material on the website is kept up to date.
+
+            h2.doc__subhead Content Liability
+            p.doc__desc We shall have no responsibility or liability for any content appearing on your Web site. You agree to indemnify and defend us against all claims arising out of or based upon your Website. No link(s) may appear on any page on your Web site or within any context containing content or materials that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.
+
+            h2.doc__subhead Disclaimer
+            p.doc__desc To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website (including, without limitation, any warranties implied by law in respect of satisfactory quality, fitness for purpose and/or the use of reasonable care and skill). Nothing in this disclaimer will:
+
+            ul 
+                li.doc__item 
+                    span limit or exclude our or your liability for death or personal injury resulting from negligence;
+                li.doc__item 
+                    span limit or exclude our or your liability for fraud or fraudulent misrepresentation;
+                li.doc__item
+                    span limit any of our or your liabilities in any way that is not permitted under applicable law; or
+                li.doc__item
+                    span exclude any of our or your liabilities that may not be excluded under applicable law.
+            
+            p.doc__desc The limitations and exclusions of liability set out in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer or in relation to the subject matter of this disclaimer, including liabilities arising in contract, in tort (including negligence) and for breach of statutory duty.
+            p.doc__desc To the extent that the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.
+
+  
+  include footer.pug
+  script(src='js/main.js')

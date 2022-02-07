@@ -1,0 +1,35 @@
+.doc {
+  /* padding-top: 12rem; */
+}
+
+.doc__header {
+  font-size: var(--h1-font);
+}
+
+.doc__last-update {
+  font-size: var(--small-font);
+}
+
+.doc__desc {
+  line-height: 180%;
+}
+
+.doc__container ul {
+  list-style: number;
+  padding-left: 1rem;
+  line-height: 180%;
+}
+
+.doc__basic_head {
+  font-size: var(--h3-font);
+  font-weight: bold;
+}
+
+.doc__desc a {
+  color: var(--title-color);
+  text-decoration: underline;
+}
+
+.italic {
+  font-style: italic;
+}

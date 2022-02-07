@@ -1,0 +1,101 @@
+doctype html
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title staque
+  meta(property='og:title', content='staque')
+  meta(property='og:description', content='A ticket bot that isn\'t short on features!\n The ideal Discord bot for managing tickets on and around your server.')
+  meta(property='og:image', content='/images/logo-bg.png')
+  link(rel="shortcut icon", href="/images/logo.png", type="image/png")
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/doc.css')
+  link(href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css', rel='stylesheet')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js', integrity='sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==', crossorigin='anonymous', referrerpolicy='no-referrer')
+  link(rel='stylesheet', href='https://unpkg.com/swiper@7/swiper-bundle.min.css')
+  script(src='https://unpkg.com/swiper@7/swiper-bundle.min.js')
+
+body#setup-body
+  include nav.pug 
+    
+
+  main.main 
+    section.terms.section 
+      .doc__container.container.grid          
+            h1.doc__header Privacy policy
+                p.doc__last-update Last updated: Feb 7, 2022
+            h2.subheading 1. What information do we collect?
+            p.doc__basic_head Discord Infomation: 
+            p.doc__desc For every server the bot is in, or have been in, we collect the following infomation:
+                ul 
+                    li.doc__item 
+                        span Server id 
+                    li.doc__item 
+                        span Server name 
+                    li.doc__item    
+                        span Server icon
+                    li.doc__item
+                        span Server owner id
+                    li.doc__item    
+                        span Server member count 
+                    li.doc__item
+                        span Server verification level
+                    li.doc__item
+                        span Server MFA level 
+                    li.doc__item
+                        span Server channels 
+                    li.doc__item
+                        span Server roles 
+                    li.doc__item
+                        span NSFW Level
+            p.doc__desc For every user who have either created a ticket or written in one, we collect the following infomation:
+                ul 
+                    li.doc__item 
+                        span User id
+                    li.doc__item
+                        span User name
+                    li.doc__item
+                        span User logo
+            p.doc__basic_head Private information
+            p.doc__desc.italic In short: Some information - such as IP address and/or browser and device characteristics – is collected automatically when you visit our site.
+            p.doc__desc We automatically collect certain information when you visit, use or navigate the Sites. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Sites and other technical information.
+            p.doc__desc This information is primarily needed to maintain the security and operation of our Sites, and for our internal analytics and reporting purposes.
+            p.doc__desc Like many businesses, we also collect information through cookies and similar technologies.
+
+            h2.subheading 2. How do we use your information?
+            p.doc__desc Discord infomation is used solitary to create ticket history on the website.
+            p.doc__desc We use personal information collected via our Sites for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests ("Business Purposes"), in order to enter into or perform a contract with you ("Contractual"), with your consent ("Consent"), and/or for compliance with our legal obligations ("Legal Reasons"). We indicate the specific processing grounds we rely on next to each purpose listed below.
+
+            h2.subheading 3. Will your information be shared with anyone?
+            p.doc__desc No, we only share information with your consent, to comply with laws, to protect your rights, or to fulfill business obligations.
+
+            h2.subheading 4. How long do we keep your information?
+            p.doc__desc Discord infomation is kept permently, only to be deleted if requested by the user.
+            p.doc__desc For private infomation, following is valid:
+            p.doc__desc We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements). No purpose in this policy will require us keeping your personal information for longer than 2 years.
+            p.doc__desc When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
+
+            h2.subheading 5. How do we keep your information safe?
+            p.doc__desc We have implemented appropriate technical and organisational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Sites is at your own risk. You should only access the services within a secure environment.
+
+            h2.subheading 6. What are your privacy rights?
+            p.doc__desc.italic In short: In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.
+            p.doc__desc In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws.
+            p.doc__desc If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.
+
+            h2.subheading 7. How can you request data deletion?
+            p.doc__desc If you wish to have any of your data deleted, you may email the owner/developer of staque at 
+                a(href="mailto:im.woterr@gmail.com") im.woterr@gmail.com
+            
+            h2.subheading 8. How can you contact us?
+            p.doc__desc If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact the owner/developer at 
+                a(href="mailto:im.woterr@gmail.com") im.woterr@gmail.com
+            p.doc__desc If you have any security concerns, you may email the owner/developer at 
+                a(href="mailto:im.woterr@gmail.com") im.woterr@gmail.com
+            p.doc__desc You may join the support server for other queries at 
+                a(href="https://staque.herokuapp.com/support") https://staque.herokuapp.com/support
+            
+
+  include footer.pug
+  script(src='js/main.js')
