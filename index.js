@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(cookies.express("a", "b", "c"));
 
-app.use(express.static(`/${__dirname}/assets`));
-app.locals.basedir = `/${__dirname}/assets`;
+app.use(express.static(`${__dirname}/assets`));
+app.locals.basedir = `${__dirname}/assets`;
 
 app.use(
   "/",
