@@ -45,7 +45,7 @@ client.on("interactionCreate", async (interaction) => {
           if (data.Locked === true)
             return await interaction.followUp({
               embeds: [
-                embed.setDescription("🔒 This ticket is already locked"),
+                embed.setDescription("🔒 This ticket is already locked").setColor("#d8c3ce"),
               ],
               ephemeral: true,
             });
