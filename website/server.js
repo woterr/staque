@@ -1,38 +1,20 @@
-const express = require("express");
-const app = express();
+const { Client, Collection } = require("discord.js");
+require("dotenv").config();
 
-const rootRoutes = require(`./routes/root-routes`);
-const authRoutes = require(`./routes/auth-routes`);
-const middleware = require("./middleware");
-const dashRoutes = require("./routes/dash-routes");
-const cookies = require("cookies");
-const bodyParser = require("body-parser");
-const methodOverride = require("method-override");
-const port = process.env.PORT || 3000;
+const client = new Client({
+  intents: 32767,
+});
+module.exports = client;
 
-__dirname;
-app.set("views", __dirname + "/views");
-app.set("view engine", "pug");
+process.on("unhandledRejection", (error) => {
+  console.error("Unhandled promise rejection:", error);
+});
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(methodOverride("_method"));
-app.use(cookies.express("a", "b", "c"));
+// Global Variables
+client.commands = new Collection();
+client.slashCommands = new Collection();
 
-app.use(express.static(`${__dirname}/assets`));
-app.locals.basedir = `${__dirname}/assets`;
+// Initializing the project
+require("./handler")(client);
 
-app.use(
-  "/",
-  middleware.updateUser,
-  rootRoutes,
-  authRoutes,
-  middleware.validateUser,
-  middleware.updateGuilds,
-  dashRoutes
-);
-
-app.use("/dashboard", middleware.validateUser, dashRoutes);
-
-app.all("*", (req, res) => res.render("404"));
-
-app.listen(port, () => console.log(`Server is live on port 3000`));
+client.login(process.env.token);
